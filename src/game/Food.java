@@ -1,5 +1,4 @@
 package game;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Food {
@@ -7,13 +6,15 @@ public class Food {
 	private Random rand;
 	private int taken = 0;
 	private int[] plate = {0,0,0,0}; //[s1,s2,s3,s4]
+	private int[] weights = {0,0,0,0}; //[s1,s2,s3,s4]
+	private int carryCap = 0;
 	
 	public Food()
 	{
 
 	}
 	
-	private void action(char act, int station, int took)
+	public void action(char act, int station, int took)
 	{
 		taken = took;
 		
@@ -32,10 +33,6 @@ public class Food {
 		else if (station == 4)
 		{
 			station4(act);
-		}
-		else if (station == 0) //backpack
-		{
-			
 		}
 	}
 		
@@ -56,8 +53,15 @@ public class Food {
 		//taken
 		if (play == 't')
 		{
-			out -= taken;
-			plate[0] += taken;
+			if(validCap(weights[0]))
+			{
+				out -= taken;
+				plate[0] += taken;
+			}
+			else
+			{
+				toMuch();
+			}
 		}
 				
 		//check (2 left)
@@ -107,8 +111,15 @@ public class Food {
 			//out -= takes.nextInt() + 1;
 			
 			//if player
-			out -= taken;
-			plate[1] += taken;
+			if(validCap(weights[1]))
+			{
+				out -= taken;
+				plate[1] += taken;
+			}
+			else
+			{
+				toMuch();
+			}
 		}
 		
 		//added
@@ -129,8 +140,15 @@ public class Food {
 		//taken
 		if (play == 't')
 		{
-			out -= taken;
-			plate[2] += taken;
+			if(validCap(weights[2]))
+			{
+				out -= taken;
+				plate[2] += taken;
+			}
+			else
+			{
+				toMuch();
+			}
 		}
 		
 		//added
@@ -155,8 +173,15 @@ public class Food {
 		//taken
 		if (play == 't')
 		{
-			out -= taken;
-			plate[3] += taken;
+			if(validCap(weights[3]))
+			{
+				out -= taken;
+				plate[3] += taken;
+			}
+			else
+			{
+				toMuch();
+			}
 		}
 		
 		//check
@@ -181,12 +206,34 @@ public class Food {
 			} 
 		} //end check if
 	} //end station 4
-
-	private void onPlate()
+	
+	
+	
+	public void clearPlate()
 	{
-		int carryCap; //limit plate can hold
-		//only if player takes
+		for(int i = 0; i <= 3; i++)
+		{
+			plate[i] = 0;
+		}
 		
+		carryCap = 0;
+	}
+
+	private boolean validCap(int weight)
+	{
+		if((carryCap + weight) > 100)
+		{
+			return false;
+		}
+		else
+		{
+			carryCap += weight;
+			return true;
+		}
 	}
 	
+	private void toMuch()
+	{
+		
+	}
 }

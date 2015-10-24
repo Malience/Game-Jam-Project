@@ -3,47 +3,25 @@ package game;
 public class Inventory {
 	//bagged items
 
-	private int countS1; //from station 1
-	private int countS2; //from station 2
-	private int countS3; //from station 3
-	private int countS4; //from station 4
+	private int[] bagged = {0,0,0,0}; //[s1,s2,s3,s4]
+	private double[] costs = {0.0, 0.0, 0.0, 0.0};
 	
-	public Inventory()
+	public Inventory(int[] placed)
 	{
-		countS1 = 0;
-		countS2 = 0;
-		countS3 = 0;
-		countS4 = 0;
+		for(int i = 0; i <= 3; i++)
+		{
+			bagged[i] += placed[i];
+		}
 	}
 	
-	private void addS1(int num)
-	{
-		countS1 += num;
-	}
-	
-	private void addS2(int num)
-	{
-		countS2 += num;
-	}
-	
-	private void addS3(int num)
-	{
-		countS3 += num;
-	}
-	
-	private void addS4(int num)
-	{
-		countS4 += num;
-	}
-	
-	private double profit() //totals food in bag
+	public double profit() //totals food in bag
 	{
 		double money = 0;
 		
-		money += (countS1 /* *costS1 */ );
-		money += (countS2 /* *costS2 */ );
-		money += (countS3 /* *costS3 */ );
-		money += (countS4 /* *costS4 */ );
+		money += (bagged[0] * costs[0]);
+		money += (bagged[1] * costs[1]);
+		money += (bagged[2] * costs[2]);
+		money += (bagged[3] * costs[3]);
 		
 		return money;
 	}
