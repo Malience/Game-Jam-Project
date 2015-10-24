@@ -131,9 +131,9 @@ public class Food {
 	
 	private void station3(char act)
 	{
-		//third food station (banana)
+		//third food station (orange)
 		char play = act;
-		//num of bananas		
+		//num of oranges		
 		rand = new Random();
 		int out = rand.nextInt(15) + 1;
 		
@@ -234,6 +234,6 @@ public class Food {
 	
 	private void toMuch()
 	{
-		
+		//suspicion up
 	}
 }

@@ -45,4 +45,9 @@ public class Table {
 		}
 	}
 	
+	public void rid(int food)
+	{
+		onTable[food]--;
+	}
+	
 }
