@@ -2,55 +2,39 @@ package com.base.engine.physics;
 
 import java.util.ArrayList;
 
+import com.base.engine.components.PhysicsComponent;
+
 public class PhysicsEngine 
 {
-	private ArrayList<PhysicsObject> objects;
-	boolean[][] collisions;
+	ArrayList<IntersectData> collisions;
+	ArrayList<Collider> colliders;
+	public static PhysicsComponent important;
 	
 	public PhysicsEngine()
 	{
-		objects = new ArrayList<PhysicsObject>();
-		collisions = new boolean[1][1];
+		collisions = new ArrayList<IntersectData>();
 	}
 	
-	public void addObject(PhysicsObject object)
-	{
-		objects.add(object);
-	}
 	
-	public void simulate(float delta)
+	public void handleCollisions(PhysicsComponent object, boolean density)
 	{
-		for(PhysicsObject object : objects)
+		if(object != important)
 		{
-			object.integrate(delta);
+			important.getCollider().setPos(important.getTransform().getPos().getXZ());
+			object.getCollider().setPos(object.getTransform().getPos().getXZ());
+				IntersectData i = object.getCollider().intersect(important.getCollider());
+				if(density)
+					important.getTransform().setPos(important.getTransform().getPos().sub(i.getDirection().mul(i.getDistance())));
+				addCollision(i);
 		}
 	}
 	
-	public void handleCollisions()
+	public void addCollision(IntersectData id)
 	{
-		collisions = new boolean[objects.size()][objects.size()];
-		for(int i = 0; i < objects.size(); i++)
-		{
-			for(int j = i + 1; j < objects.size(); j++)
-			{
-				IntersectData intersectData  = objects.get(i).getCollider().intersect(objects.get(j).getCollider());
-				collisions[i][j] = intersectData.getDoesIntersect();
-			}
-		}
+		collisions.add(id);
 	}
 	
-	//Temporary//
-	public PhysicsObject getObject(int i)
-	{
-		return objects.get(i);
-	}
-	
-	public int getNumObjects()
-	{
-		return objects.size();
-	}
-	
-	public boolean[][] getCollisions()
+	public ArrayList<IntersectData> getCollisions()
 	{
 		return collisions;
 	}

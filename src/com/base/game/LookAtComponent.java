@@ -2,6 +2,7 @@ package com.base.game;
 
 import com.base.engine.components.GameComponent;
 import com.base.engine.core.*;
+import com.base.engine.physics.PhysicsEngine;
 import com.base.engine.rendering.RenderingEngine;
 import com.base.engine.rendering.Shader;
 
@@ -10,7 +11,7 @@ public class LookAtComponent extends GameComponent
 	RenderingEngine renderingEngine;
 
 	@Override
-	public void update(float delta)
+	public void update(float delta, PhysicsEngine physicsEngine)
 	{
 		if(renderingEngine != null)
 		{

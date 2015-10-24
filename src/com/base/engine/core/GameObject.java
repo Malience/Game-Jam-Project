@@ -1,6 +1,7 @@
 package com.base.engine.core;
 
 import com.base.engine.components.GameComponent;
+import com.base.engine.physics.PhysicsEngine;
 import com.base.engine.rendering.RenderingEngine;
 import com.base.engine.rendering.Shader;
 
@@ -44,12 +45,12 @@ public class GameObject
 			child.inputAll(delta);
 	}
 
-	public void updateAll(float delta)
+	public void updateAll(float delta, PhysicsEngine physicsEngine)
 	{
-		update(delta);
+		update(delta, physicsEngine);
 
 		for(GameObject child : children)
-			child.updateAll(delta);
+			child.updateAll(delta, physicsEngine);
 	}
 
 	public void renderAll(Shader shader, RenderingEngine renderingEngine)
@@ -68,10 +69,10 @@ public class GameObject
 			component.input(delta);
 	}
 
-	public void update(float delta)
+	public void update(float delta, PhysicsEngine physicsEngine)
 	{
 		for(GameComponent component : components)
-			component.update(delta);
+			component.update(delta, physicsEngine);
 	}
 
 	public void render(Shader shader, RenderingEngine renderingEngine)

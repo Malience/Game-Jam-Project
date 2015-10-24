@@ -69,6 +69,7 @@ public class CoreEngine {
 		Input.init(MainWindow);
 		
 		renderingEngine = new RenderingEngine();
+		physicsEngine = new PhysicsEngine();
 		game.init();
 		
 		
@@ -105,7 +106,7 @@ public class CoreEngine {
 				
 				Input.update();
 				game.input((float)frameTime);
-				game.update((float)frameTime);
+				game.update((float)frameTime, physicsEngine);
 				
 				if(frameCounter >= 1.0)
 				{

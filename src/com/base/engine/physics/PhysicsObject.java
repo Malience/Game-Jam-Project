@@ -16,7 +16,7 @@ public class PhysicsObject
 	public PhysicsObject(Collider collider, Vector3f velocity) {
 		super();
 		this.collider = collider;
-		this.position = this.collider.getCenter();
+		//this.position = this.collider.getCenter();
 		oldPosition = position;
 		this.velocity = velocity;
 	}

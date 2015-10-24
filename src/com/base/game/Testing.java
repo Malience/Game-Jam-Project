@@ -9,9 +9,9 @@ public class Testing
 {
 	public static void testAll()
 	{
-		BoundingSphere.test();
+		//BoundingSphere.test();
 		AABB.test();
-		Plane.Test();
+		//Plane.Test();
 		PhysicsObject.test();
 	}
 }

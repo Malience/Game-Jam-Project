@@ -1,9 +1,16 @@
 package game;
 
+import com.base.engine.core.Vector2f;
+import com.base.engine.physics.BoundingCircle;
+import com.base.engine.physics.Collider;
+
 import game.mob.Mob;
 
-public class Player extends Mob
+public class Player extends Mob implements Collides
 {
+	Collider collider;
+	boolean density;
+	
 	private int fullness = 0;
 	private int maxFull;
 	int suspected = 0;
@@ -12,6 +19,8 @@ public class Player extends Mob
 	public Player(float x, float y, float z)
 	{
 		super(x,y,z);
+		collider = new BoundingCircle(new Vector2f(0,0), 3f);
+		density = true;
 	}
 	
 	private void suspicion()
@@ -47,4 +56,16 @@ public class Player extends Mob
 		//if (S1)
 		//	inventory.addS1(); //ex
 	}
+	
+	@Override
+	public Collider getCollider() {
+		return collider;
+	}
+	
+	@Override
+	public boolean getDensity() {
+		return density;
+	}
+	
+	
 }
