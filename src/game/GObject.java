@@ -12,25 +12,47 @@ import com.base.engine.rendering.Texture;
 
 public abstract class GObject implements Renderable 
 {
-	public float x,y,z,scale;
+	public float x,y,z,scale,rot;
 	public ArrayList<GObject> children;
-	public String texture = "test.png";
-	public String mesh = "monkey3.obj";
+	public String texture;
+	public String mesh;
 	
-	public GObject(float x, float y, float z, float s, String t, String m)
+	public GObject()
+	{
+		this(0,0,0);
+	}
+	
+	public GObject(float x, float y, float z)
 	{
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.scale = s;
-		texture = t;
-		mesh = m;
+		setScale(1.0f);
+		setTexture("test.png");
+		setMesh("monkey3.obj");
 		children = null;
 	}
 	
 	public Vector3f getPos()
 	{
 		return new Vector3f(x,y,z);
+	}
+	
+	public void setScale(float s)
+	{
+		scale = s;
+	}
+	
+	public void setPos(float x, float y, float z)
+	{
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+	
+	public void setRot(float r)
+	{
+		rot = r;
 	}
 	
 	@Override
@@ -41,5 +63,15 @@ public abstract class GObject implements Renderable
 	@Override
 	public String getMesh() {
 		return mesh;
+	}
+	
+	@Override
+	public void setTexture(String texture) {
+		this.texture = texture;
+	}
+
+	@Override
+	public void setMesh(String mesh) {
+		this.mesh = mesh;
 	}
 }

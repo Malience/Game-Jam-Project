@@ -13,9 +13,9 @@ public class Main
 	{
 		//Testing.testAll();
 			
-		//
-		Noise sound = new Noise();
-		sound.play();
+//		//
+//		Noise sound = new Noise();
+//		sound.play();
 		//
 		
 		//CoreEngine engine = new CoreEngine(800, 600, "Test", 60, new TestGame());

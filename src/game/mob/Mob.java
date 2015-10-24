@@ -8,7 +8,10 @@ public class Mob extends GObject
 {
 
 	public Mob(float x, float y, float z) {
-		super(x, y, z, .005f, "test.png", "man001.obj");
+		super(x, y, z);
+		setScale(.005f);
+		setTexture("test.png");
+		setMesh("man001.obj");
 	}
 //	public Mob(char rank)
 //	{

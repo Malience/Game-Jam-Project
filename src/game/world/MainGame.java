@@ -11,6 +11,8 @@ import com.base.engine.core.Game;
 import com.base.engine.core.GameObject;
 import com.base.engine.core.Vector2f;
 import com.base.engine.core.Vector3f;
+import com.base.engine.physics.AABB;
+import com.base.engine.physics.Collider;
 import com.base.engine.physics.PhysicsEngine;
 import com.base.engine.rendering.Material;
 import com.base.engine.rendering.Mesh;
@@ -22,6 +24,7 @@ import com.base.engine.rendering.Window;
 import game.Player;
 import game.TestObject;
 import game.objects.Table;
+import game.objects.Wall;
 
 public class MainGame extends Game
 {
@@ -64,28 +67,31 @@ public class MainGame extends Game
 		MeshRenderer plane = new MeshRenderer(mesh, material);
 		addObject(new GameObject().addComponent(plane));
 		
-		Player player = new Player(1,0,0);
-		GameObject playerObject = new GameObject();/*.addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10))*/
-		playerObject.getTransform().setPos(player.getPos());
-		playerObject.getTransform().setScale(player.scale);
-		playerObject.addComponent(player.getRender());
-		GameObject cam = new GameObject();
-		Camera camera = new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f);
-		//RenderingEngine.mainCamera = camera;
+//		Player player = new Player(1,0,0);
+//		GameObject playerObject = new GameObject();/*.addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10))*/
+//		playerObject.getTransform().setPos(player.getPos());
+//		playerObject.getTransform().setScale(player.scale);
+//		playerObject.addComponent(player.getRender());
+//		GameObject cam = new GameObject();
+//		Camera camera = new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f);
+//		//RenderingEngine.mainCamera = camera;
+//		
+//		PhysicsComponent pc = player.getComponent();
+//		PhysicsEngine.important = pc;
+//		playerObject.addComponent(pc);
+//		
+//		playerObject.addChild(cam);
+//		cam.addComponent(camera);
+//		camera.getTransform().setPos(new Vector3f(0,400.0f,-100));
+//		camera.getTransform().rotate(new Vector3f(1,0,0), 45f);
+//		//cam.addComponent(new FreeLook(2.0f));
+//		playerObject.addComponent(new FreeMove(3.0f));
+//		//playerObject.addComponent(new FreeLook(10.0f));
 		
-		PhysicsComponent pc = player.getComponent();
-		PhysicsEngine.important = pc;
-		playerObject.addComponent(pc);
+		GameObject playerObject = new GameObject().addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10)).addComponent(new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f));
+		PhysicsEngine.important = new PhysicsComponent(new AABB(new Vector3f(1,0,0), 1.0f, 1.0f), false);
+		playerObject.addComponent(PhysicsEngine.important);
 		
-		playerObject.addChild(cam);
-		cam.addComponent(camera);
-		camera.getTransform().setPos(new Vector3f(0,400.0f,-100));
-		camera.getTransform().rotate(new Vector3f(1,0,0), 45f);
-		//cam.addComponent(new FreeLook(2.0f));
-		playerObject.addComponent(new FreeMove(3.0f));
-		//playerObject.addComponent(new FreeLook(10.0f));
-		
-		//GameObject playerObject = new GameObject().addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10)).addComponent(new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f));
 		
 		addObject(directionalLightObject);
 		addObject(playerObject);
@@ -98,8 +104,13 @@ public class MainGame extends Game
 		to.getTransform().setPos(table.getPos());
 		to.getTransform().setScale(table.scale);
 		
+		
 		addObject(to);
 		World.New(new TestObject(0,0,0));
+		World.New(new Wall(0,0,3));
+		World.New(new Wall(1f,0,3));
+		World.New(new Wall(2,0,3));
+		World.New(new Wall(3,0,3));
 		//World.New(new Table(0,0,1));
 	}
 }

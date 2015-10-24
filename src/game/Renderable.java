@@ -9,6 +9,9 @@ public interface Renderable
 {
 	public String getTexture();
 	public String getMesh();
+	public void setTexture(String texture);
+	public void setMesh(String mesh);
+	
 	public default MeshRenderer getRender()
 	{
 		Material material = new Material();
