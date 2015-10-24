@@ -46,3 +46,4 @@ Temporary Items
 *.class
 
 hs_err_pid*
+/bin/
