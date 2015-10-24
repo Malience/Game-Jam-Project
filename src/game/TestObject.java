@@ -3,7 +3,7 @@ package game;
 public class TestObject extends GObject implements Renderable
 {
 	String texture = "test.png";
-	String mesh = "pizzapan2.obj";
+	String mesh = "cyln.obj";
 	
 	public TestObject(int x, int y, int z) {
 		super(x, y, z);
