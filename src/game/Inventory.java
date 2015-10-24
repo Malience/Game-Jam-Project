@@ -6,12 +6,14 @@ public class Inventory {
 	private int[] bagged = {0,0,0,0}; //[s1,s2,s3,s4]
 	private double[] costs = {0.0, 0.0, 0.0, 0.0};
 	
-	public Inventory(int[] placed)
+	public Inventory()
 	{
-		for(int i = 0; i <= 3; i++)
-		{
-			bagged[i] += placed[i];
-		}
+		
+	}
+	
+	public void addFood(int food)
+	{
+		bagged[food]++;
 	}
 	
 	public double profit() //totals food in bag
