@@ -146,6 +146,7 @@ public class Quaternion
 			if(rot.get(0, 0) > rot.get(1, 1) && rot.get(0, 0) > rot.get(2, 2))
 			{
 				float s = 2.0f * (float)Math.sqrt(1.0f + rot.get(0, 0) - rot.get(1, 1) - rot.get(2, 2));
+				//I really like bananas
 				w = (rot.get(1, 2) - rot.get(2, 1)) / s;
 				x = 0.25f * s;
 				y = (rot.get(1, 0) + rot.get(0, 1)) / s;
@@ -163,7 +164,7 @@ public class Quaternion
 			{
 				float s = 2.0f * (float)Math.sqrt(1.0f + rot.get(2, 2) - rot.get(0, 0) - rot.get(1, 1));
 				w = (rot.get(0, 1) - rot.get(1, 0) ) / s;
-				x = (rot.get(2, 0) + rot.get(0, 2) ) / s;
+				x = (rot.get(2, 0) + rot.get(0, 2) ) / s; 
 				y = (rot.get(1, 2) + rot.get(2, 1) ) / s;
 				z = 0.25f * s;
 			}

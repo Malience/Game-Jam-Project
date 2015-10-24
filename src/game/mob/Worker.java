@@ -1,4 +1,4 @@
-package game;
+package game.mob;
 import java.util.Random;
 
 public class Worker

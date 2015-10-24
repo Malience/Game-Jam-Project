@@ -3,7 +3,6 @@ package game.mob;
 import game.GObject;
 import game.Player;
 import game.Student;
-import game.Worker;
 
 public class Mob extends GObject
 {
