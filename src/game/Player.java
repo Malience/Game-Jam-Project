@@ -1,5 +1,7 @@
 package game;
 
+import game.mob.Mob;
+
 public class Player extends Mob
 {
 	private int fullness = 0;
@@ -7,9 +9,9 @@ public class Player extends Mob
 	int suspected = 0;
 	int maxSus = 100;
 	
-	public Player()
+	public Player(float x, float y, float z)
 	{
-		
+		super(x,y,z);
 	}
 	
 	private void suspicion()

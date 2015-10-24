@@ -149,4 +149,9 @@ public class CoreEngine {
 	public RenderingEngine getRenderingEngine() {
 		return renderingEngine;
 	}
+	
+	public PhysicsEngine getPhysicsEngine()
+	{
+		return physicsEngine;
+	}
 }

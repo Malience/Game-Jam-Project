@@ -10,37 +10,36 @@ import com.base.engine.rendering.Material;
 import com.base.engine.rendering.Mesh;
 import com.base.engine.rendering.Texture;
 
-public abstract class GObject 
+public abstract class GObject implements Renderable 
 {
-	public int x,y,z;
+	public float x,y,z,scale;
 	public ArrayList<GObject> children;
+	public String texture = "test.png";
+	public String mesh = "monkey3.obj";
 	
-	public GObject(int x, int y,int z)
+	public GObject(float x, float y, float z, float s, String t, String m)
 	{
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		this.scale = s;
+		texture = t;
+		mesh = m;
 		children = null;
 	}
 	
-	public GameObject convert()
+	public Vector3f getPos()
 	{
-		GameObject object = new GameObject();
-		Transform t = object.getTransform();
-		//t.setPos(new Vector3f(x,y,z));
-		
-		if(this instanceof Renderable)
-		{
-			Renderable o = (Renderable) this;
-			Material material = new Material();
-			material.addTexture("diffuse", new Texture(o.getTexture()));
-			material.addFloat("specularIntensity", 1);
-			material.addFloat("specularPower", 8);
-			object.addComponent(new MeshRenderer(new Mesh(o.getMesh()), material));
-		}
-		
-		
-		
-		return object;
+		return new Vector3f(x,y,z);
+	}
+	
+	@Override
+	public String getTexture() {
+		return texture;
+	}
+
+	@Override
+	public String getMesh() {
+		return mesh;
 	}
 }

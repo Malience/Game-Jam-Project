@@ -21,7 +21,7 @@ import static org.lwjgl.opengl.GL32.*;
 
 public class RenderingEngine extends MappedValues
 {
-	private Camera mainCamera;
+	public static Camera mainCamera;
 
 	private ArrayList<BaseLight> lights;
 	private BaseLight activeLight;
