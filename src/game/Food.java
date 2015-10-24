@@ -234,6 +234,6 @@ public class Food {
 	
 	private void toMuch()
 	{
-		
+		//suspicion up
 	}
 }

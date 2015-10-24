@@ -31,7 +31,7 @@ public class Player extends Mob
 		}
 	}
 		
-	private void eat(int food)
+	public void eat(int food)
 	{
 		//eat item
 		fullness += foodFill[food];
