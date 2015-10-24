@@ -8,13 +8,19 @@ import game.mob.Mob;
 
 public class Player extends Mob implements Collides
 {
+<<<<<<< HEAD
 	Collider collider;
 	boolean density;
 	
+=======
+	private int[] foodFill = {0,0,0,0};
+>>>>>>> 9544138af48da768eeae62e4a8f1e83069687750
 	private int fullness = 0;
-	private int maxFull;
-	int suspected = 0;
-	int maxSus = 100;
+	private int suspected = 0;
+	private int maxSus = 100;
+	private Table table = new Table();
+	private Inventory inv = new Inventory();
+	
 	
 	public Player(float x, float y, float z)
 	{
@@ -36,25 +42,29 @@ public class Player extends Mob implements Collides
 			//game over
 		}
 	}
-	
-	//when at table
-	private void holding()
-	{
-		//goes through items on plate
-	}
-	
-	private void eat(Food ate)
+		
+	public void eat(int food)
 	{
 		//eat item
-		//fullness += (food satisfaction)
+		fullness += foodFill[food];
+		//subtracts the item from the table
+		table.rid(food);
+		coma();
 	}
 	
-	private void bag(Food take)
+	public void bag(int food)
 	{
 		//bag item
-		//add to inventory
-		//if (S1)
-		//	inventory.addS1(); //ex
+		inv.addFood(food);
+	}
+	
+	private void coma()
+	{
+		if(fullness > 100)
+		{
+			//player stops for short time
+			fullness = 90;
+		}
 	}
 	
 	@Override
