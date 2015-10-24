@@ -5,8 +5,8 @@ public class Food {
 
 	private Random rand;
 	private int taken = 0;
-	private int[] plate = {0,0,0,0}; //[s1,s2,s3,s4]
-	private int[] weights = {0,0,0,0}; //[s1,s2,s3,s4]
+	private int[] plate = {0,0,0,0,0,0}; //[s1,s2,s3,s4,s5,s6]
+	private int[] weights = {0,0,0,0,0,0}; //[s1,s2,s3,s4,s5,s6]
 	private int carryCap = 0;
 	
 	public Food()
@@ -33,6 +33,14 @@ public class Food {
 		else if (station == 4)
 		{
 			station4(act);
+		}
+		else if (station == 5)
+		{
+			station5(act);
+		}
+		else if (station == 6)
+		{
+			station6(act);
 		}
 	}
 		
@@ -207,11 +215,105 @@ public class Food {
 		} //end check if
 	} //end station 4
 	
+	private void station5(char act)
+	{
+		//five food station (ice cream)
+				char play = act;
+				//num of ice creams		
+				rand = new Random();
+				int out = rand.nextInt(5) + 1;
+				
+				Random rndcheck = new Random(11);
+				int chance = 0;
+				
+				//taken
+				if (play == 't')
+				{
+					if(validCap(weights[4]))
+					{
+						out -= taken;
+						plate[4] += taken;
+					}
+					else
+					{
+						toMuch();
+					}
+				}
+				
+				//check
+				if (out == 0)
+				{
+					chance = rndcheck.nextInt();
+					
+					if (chance >= 6)
+					{
+						if (chance <= 2)
+						{
+							out += 3;
+						}
+						else if (chance <= 4)
+						{
+							out += 4;
+						}
+						else if (chance <= 6)
+						{
+							out += 5;
+						}
+					} 
+				} //end check if
+	}
 	
+	private void station6(char act)
+	{
+		//five food station (special)
+				char play = act;
+				//num of special		
+				rand = new Random();
+				int out = rand.nextInt(5) + 1;
+				
+				Random rndcheck = new Random(11);
+				int chance = 0;
+				
+				//taken
+				if (play == 't')
+				{
+					if(validCap(weights[5]))
+					{
+						out -= taken;
+						plate[4] += taken;
+					}
+					else
+					{
+						toMuch();
+					}
+				}
+				
+				//check
+				if (out == 0)
+				{
+					chance = rndcheck.nextInt();
+					
+					if (chance >= 6)
+					{
+						if (chance <= 2)
+						{
+							out += 3;
+						}
+						else if (chance <= 4)
+						{
+							out += 4;
+						}
+						else if (chance <= 6)
+						{
+							out += 5;
+						}
+					} 
+				} //end check if
+	}
 	
 	public void clearPlate()
 	{
-		for(int i = 0; i <= 3; i++)
+		for(int i = 0; i <= 4; i++)
 		{
 			plate[i] = 0;
 		}
