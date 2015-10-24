@@ -1,18 +1,22 @@
 package game;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Food {
 
 	private Random rand;
+	private int taken = 0;
+	private int[] plate = {0,0,0,0}; //[s1,s2,s3,s4]
 	
 	public Food()
 	{
-		
+
 	}
 	
-	private void action(char act, int station)
+	private void action(char act, int station, int took)
 	{
-		// a:add, t: take
+		taken = took;
+		
 		if (station == 1)
 		{
 			station1(act);
@@ -28,6 +32,10 @@ public class Food {
 		else if (station == 4)
 		{
 			station4(act);
+		}
+		else if (station == 0) //backpack
+		{
+			
 		}
 	}
 		
@@ -48,7 +56,8 @@ public class Food {
 		//taken
 		if (play == 't')
 		{
-			out--;
+			out -= taken;
+			plate[0] += taken;
 		}
 				
 		//check (2 left)
@@ -93,8 +102,13 @@ public class Food {
 		//taken
 		if (play == 't')
 		{
-			Random takes = new Random(4);
-			out -= takes.nextInt() + 1;
+			//if npc
+			//Random takes = new Random(4);
+			//out -= takes.nextInt() + 1;
+			
+			//if player
+			out -= taken;
+			plate[1] += taken;
 		}
 		
 		//added
@@ -115,7 +129,8 @@ public class Food {
 		//taken
 		if (play == 't')
 		{
-			out--;
+			out -= taken;
+			plate[2] += taken;
 		}
 		
 		//added
@@ -140,7 +155,8 @@ public class Food {
 		//taken
 		if (play == 't')
 		{
-			out--;
+			out -= taken;
+			plate[3] += taken;
 		}
 		
 		//check
@@ -165,4 +181,12 @@ public class Food {
 			} 
 		} //end check if
 	} //end station 4
+
+	private void onPlate()
+	{
+		int carryCap; //limit plate can hold
+		//only if player takes
+		
+	}
+	
 }
