@@ -18,8 +18,9 @@ public class BoundingSphere extends Collider
 	{
 		float radiusDistance = radius + other.radius;
 		float centerDistance = (other.getCenter().sub(center)).length();
+		Vector3f dir = center.sub(other.getCenter()).normalized();
 		
-		return new IntersectData(centerDistance < radiusDistance, centerDistance - radiusDistance);
+		return new IntersectData(centerDistance < radiusDistance, centerDistance - radiusDistance, dir);
 	}
 	
 	public static void test()
@@ -57,6 +58,10 @@ public class BoundingSphere extends Collider
 	@Override
 	public Vector3f getCenter() {
 		return center;
+	}
+	@Override
+	public void setCenter(Vector3f v) {
+		center = v;
 	}
 	public float getRadius() {
 		return radius;

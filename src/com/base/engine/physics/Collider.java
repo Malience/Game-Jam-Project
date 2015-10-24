@@ -45,6 +45,10 @@ public class Collider extends ReferenceCounter
 		return new Vector3f(0,0,0);
 	}
 	
+	public void setCenter(Vector3f v)
+	{
+	}
+	
 	public int getType() {
 		return type;
 	}

@@ -1,20 +1,21 @@
 package game;
 
 import com.base.engine.core.Vector2f;
-import com.base.engine.physics.BoundingCircle;
+import com.base.engine.core.Vector3f;
+import com.base.engine.physics.BoundingSphere;
 import com.base.engine.physics.Collider;
 
 import game.mob.Mob;
 
 public class Player extends Mob implements Collides
 {
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	Collider collider;
 	boolean density;
 	
-=======
+//=======
 	private int[] foodFill = {0,0,0,0};
->>>>>>> 9544138af48da768eeae62e4a8f1e83069687750
+//>>>>>>> 9544138af48da768eeae62e4a8f1e83069687750
 	private int fullness = 0;
 	private int suspected = 0;
 	private int maxSus = 100;
@@ -25,7 +26,7 @@ public class Player extends Mob implements Collides
 	public Player(float x, float y, float z)
 	{
 		super(x,y,z);
-		collider = new BoundingCircle(new Vector2f(0,0), 3f);
+		collider = new BoundingSphere(new Vector3f(x,y,z), .07f);
 		density = true;
 	}
 	

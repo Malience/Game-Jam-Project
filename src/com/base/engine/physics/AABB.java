@@ -21,7 +21,7 @@ public class AABB
 		
 		float maxDistance = distances.max();
 		
-		return new IntersectData(maxDistance < 0, maxDistance);
+		return new IntersectData(maxDistance < 0, maxDistance, distances.normalized());
 	}
 	
 	public static void test()

@@ -1,7 +1,8 @@
 package game.objects;
 
 import com.base.engine.core.Vector2f;
-import com.base.engine.physics.BoundingCircle;
+import com.base.engine.core.Vector3f;
+import com.base.engine.physics.BoundingSphere;
 import com.base.engine.physics.Collider;
 
 import game.Collides;
@@ -14,7 +15,7 @@ public class Table extends GObject implements Collides
 	
 	public Table(float x, float y, float z) {
 		super(x, y, z, 0.003f, "brown.png", "table001.obj");
-		collider = new BoundingCircle(new Vector2f(0,0), 3f);
+		collider = new BoundingSphere(new Vector3f(x,y,z), .07f);
 		density = true;
 	}
 

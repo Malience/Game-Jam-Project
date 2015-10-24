@@ -81,7 +81,7 @@ public class MainGame extends Game
 		cam.addComponent(camera);
 		camera.getTransform().setPos(new Vector3f(0,400.0f,-100));
 		camera.getTransform().rotate(new Vector3f(1,0,0), 45f);
-		playerObject.addComponent(new FreeMove(5.0f));
+		playerObject.addComponent(new FreeMove(3.0f));
 		//playerObject.addComponent(new FreeLook(10.0f));
 		
 		//GameObject playerObject = new GameObject().addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10)).addComponent(new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f));
