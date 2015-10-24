@@ -25,6 +25,12 @@ public class Collider extends ReferenceCounter
 			return self.intersectBoundingSphere((BoundingSphere)other);
 		}
 		
+		if(type == TYPE_AABB && other.getType() == TYPE_AABB)
+		{
+			AABB self = (AABB) this;
+			return self.intersectAABB((AABB)other);
+		}
+		
 		System.err.println("Error: Collisons not implemented between specified colliders");
 		System.exit(1);
 		

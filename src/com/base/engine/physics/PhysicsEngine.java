@@ -3,6 +3,7 @@ package com.base.engine.physics;
 import java.util.ArrayList;
 
 import com.base.engine.components.PhysicsComponent;
+import com.base.engine.core.Vector3f;
 
 public class PhysicsEngine 
 {
@@ -26,10 +27,11 @@ public class PhysicsEngine
 				IntersectData i = object.getCollider().intersect(important.getCollider());
 				if(object.getDensity() && i.getDoesIntersect())
 				{
-					important.getTransform().setPos(important.getTransform().getPos().sub(i.getDirection().mul(i.getDistance()).mul(-1)));
-					//if(i.getDoesIntersect()) System.out.println("Collides!");
+					important.getTransform().setPos(important.getTransform().getPos().sub(new Vector3f(i.getDirection().getX(), 0, i.getDirection().getZ()).normalized().mul(i.getDistance()).mul(-1)));
+					if(i.getDoesIntersect()) System.out.println("Collides!");
 				}
 				addCollision(i);
+				//if(i.getDoesIntersect()) System.out.println("Collides!");
 		}
 	}
 	
