@@ -86,7 +86,18 @@ public class MainGame extends Game
 		playerObject.getTransform().setScale(player.getScale());
 		playerObject.addComponent(player.getRender());
 		//END PLAYER**********************
+		Material material2 = new Material();
+		material2.addTexture("diffuse", new Texture("fog2.png"));
+		material2.addFloat("specularIntensity", 1);
+		material2.addFloat("specularPower", 8);
 		
+		MeshRenderer mesh2 = new MeshRenderer(new Mesh("fog.obj"), material2);
+		GameObject fog = new GameObject();
+		fog.addComponent(mesh2);
+		fog.getTransform().setPos(new Vector3f(0,0,210));
+		fog.getTransform().setScale(600);
+		
+		playerObject.addChild(fog);
 		
 		//PLAYER PHYSICS COMPONENT
 		PhysicsComponent pc = player.getComponent1();
@@ -101,7 +112,7 @@ public class MainGame extends Game
 		
 		playerObject.addChild(cam);
 		cam.addComponent(camera);
-		camera.getTransform().setPos(new Vector3f(0,400.0f,-100));
+		camera.getTransform().setPos(new Vector3f(0,400.0f,-200));
 		camera.getTransform().rotate(new Vector3f(1,0,0), 45f);
 		//cam.addComponent(new FreeLook(2.0f));
 		playerObject.addComponent(new FreeMove(3.0f)); //Movement
