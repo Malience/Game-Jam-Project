@@ -24,9 +24,9 @@ public class JacksMap extends subgame
 		
 		//right wall
 		Wall tWall = new Wall((float)1.0,(float)0.0,(float)1.0);		
-		for(double i = 0.1; i <= 30; i++)
+		for(double i = -10.0; i <= 30; i++)
 		{
-			tWall = new Wall((float)(30.0),(float)(0.0),(float)(i+0.5));
+			tWall = new Wall((float)(30.0),(float)(0.0),(float)(i+0.1));
 			tWall.setRotY((float)2.0015);
 			World.New(tWall);
 		}
