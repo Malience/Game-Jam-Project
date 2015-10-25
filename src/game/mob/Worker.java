@@ -1,13 +1,23 @@
 package game.mob;
 import java.util.Random;
 
-public class Worker
+import com.base.engine.core.Vector3f;
+import com.base.engine.physics.AABB;
+
+import game.RCObject;
+
+public class Worker extends RCObject
 {
 	int speed;
 	
-	public Worker()
+	public Worker(float x, float y, float z)
 	{
-		//creates worker
+		super(x,y,z);
+		float width = .3f;
+		float height = .3f;
+		
+		setCollider(new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2)));
+		setDensity(true);
 	}
 	
 	//turn or no turn

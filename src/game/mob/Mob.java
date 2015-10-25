@@ -4,14 +4,12 @@ import com.base.engine.physics.Collider;
 
 import game.Collides;
 import game.GObject;
-import game.Player;
+import game.RCObject;
 import game.RObject;
 import game.Student;
 
-public class Mob extends RObject implements Collides
+public class Mob extends RCObject
 {
-	Collider collider;
-	boolean density;
 	
 	public Mob(float x, float y, float z) {
 		super(x, y, z);
@@ -35,30 +33,4 @@ public class Mob extends RObject implements Collides
 //			Player p = new Player();
 //		}
 //	}
-
-	@Override
-	public Collider getCollider1() {
-		return collider;
-	}
-
-	@Override
-	public boolean getDensity() {
-		return density;
-	}
-	
-	@Override
-	public void setCollider(Collider collider) {
-		this.collider = collider;
-	}
-
-	@Override
-	public void setDensity(boolean density) {
-		this.density = density;
-	}
-
-	@Override
-	public Collider getCollider2() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
