@@ -6,6 +6,7 @@ import com.base.engine.core.Vector3f;
 
 import game.Collides;
 import game.GObject;
+import game.Renderable;
 
 public class World 
 {
@@ -14,7 +15,6 @@ public class World
 	public static void New(GObject object)
 	{
 		GameObject o = new GameObject();
-		o.addComponent(object.getRender());
 		
 		
 		o.getTransform().setPos(object.getPos());
@@ -25,6 +25,10 @@ public class World
 		o.getTransform().rotate(new Vector3f(0,1,0), (float)Math.toRadians(object.getRotY()));
 		o.getTransform().rotate(new Vector3f(0,0,1), (float)Math.toRadians(object.getRotZ()));
 		
+		if(object instanceof Renderable)
+		{
+			o.addComponent(object.getRender());
+		}
 		if(object instanceof Collides)
 		{
 			Collides c = (Collides) object;

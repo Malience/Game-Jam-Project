@@ -92,12 +92,18 @@ public class MainGame extends Game
 		
 		cam.addChild(interfaces);
 		
-		E e = new E(0,-3,2);
+		E e = new E(0,-3, 6);
+		e.setRotX(-90);
+		
 		GameObject ee = new GameObject();
 		ee.addComponent(e.getRender());
 		interfaces.addChild(ee);
 		
 		ee.getTransform().setPos(e.getPos());
+		ee.getTransform().setScale(e.getScale());
+		ee.getTransform().rotate(new Vector3f(1,0,0), (float)Math.toRadians(e.getRotX()));
+		ee.getTransform().rotate(new Vector3f(0,1,0), (float)Math.toRadians(e.getRotY()));
+		ee.getTransform().rotate(new Vector3f(0,0,1), (float)Math.toRadians(e.getRotZ()));
 		
 		//playerObject.addComponent(new FreeLook(10.0f));
 		

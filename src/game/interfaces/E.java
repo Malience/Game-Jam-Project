@@ -8,8 +8,8 @@ public class E extends GObject
 	{
 		super(x, y, z);
 		
-		setScale(0.1f);
-		setTexture("fog2.png");
-		setMesh("plane3.obj");	
+		setScale(0.01f);
+		setTexture("the e transparent.png");
+		setMesh("plane64.obj");	
 	}
 }
