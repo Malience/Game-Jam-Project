@@ -13,9 +13,9 @@ public class DrinkMachine extends Furnishing
 	public DrinkMachine(float x, float y, float z) {
 		super(x, y, z);
 		
-		setScale(0.02f);
-		//setRotY(-180);
-		setTexture("bricks2.jpg");
+		setScale(0.01f);
+		
+		setTexture("DrinkMachine001Rotate.png");
 		setMesh("drinkmachine001.obj");		
 		
 		float width = 1.4f;
