@@ -23,6 +23,7 @@ import com.base.engine.rendering.Window;
 
 import game.Player;
 import game.TestObject;
+import game.interfaces.E;
 import game.objects.Table;
 import game.objects.Wall;
 
@@ -86,6 +87,18 @@ public class MainGame extends Game
 		camera.getTransform().rotate(new Vector3f(1,0,0), 45f);
 		//cam.addComponent(new FreeLook(2.0f));
 		playerObject.addComponent(new FreeMove(3.0f));
+		
+		GameObject interfaces = new GameObject();
+		
+		cam.addChild(interfaces);
+		
+		E e = new E(0,-3,2);
+		GameObject ee = new GameObject();
+		ee.addComponent(e.getRender());
+		interfaces.addChild(ee);
+		
+		ee.getTransform().setPos(e.getPos());
+		
 		//playerObject.addComponent(new FreeLook(10.0f));
 		
 //		GameObject playerObject = new GameObject().addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10)).addComponent(new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f));

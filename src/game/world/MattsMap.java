@@ -20,7 +20,7 @@ public class MattsMap extends subgame
 		 * Then put them into the game with World.New(Object);
 		 */
 		new Pizza(0,0,3);
-//		World.New(new PizzaPan(0,0,3));
+		World.New(new ServingTable(4,0,0));
 //		World.New(new PizzaSlice(0,0,3));
 	}
 }
