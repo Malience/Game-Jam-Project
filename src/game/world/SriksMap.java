@@ -10,7 +10,7 @@ public class SriksMap extends subgame
 		/*
 		 * Create objects such as Walls by using their constructor
 		 * Edit them however you'd like
-		 * Then put them into the game with World.New(Object);
+		 * Then put them into the game with World.New(Object);sa
 		 */ 
 		
 		//World.New(new Table (1f, 0f, 1f));
