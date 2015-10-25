@@ -8,7 +8,7 @@ public class PizzaSlice extends Food
 		
 		setScale(0.1f);
 		setTexture("slice.png");
-		setMesh("slice.obj");	
+		setMesh("finalslice.obj");	
 	}
 
 }
