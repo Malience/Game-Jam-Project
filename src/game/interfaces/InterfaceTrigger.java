@@ -9,7 +9,12 @@ import static org.lwjgl.glfw.GLFW.*;
 
 import game.Collides;
 import game.GObject;
+import game.objects.Backpack;
+import game.objects.ServingTable;
+import game.objects.SpecialChair;
+import game.objects.SpecialTable;
 import game.objects.food.PizzaSlice;
+import game.world.MainGame;
 
 public class InterfaceTrigger extends GObject implements Collides
 {
@@ -18,15 +23,16 @@ public class InterfaceTrigger extends GObject implements Collides
 	public boolean density;
 	public E e;
 	public Vector3f base;
+	private GObject parent;
 	
 	
-	public InterfaceTrigger(float x, float y, float z, E e)
+	public InterfaceTrigger(float x, float y, float z, E e, GObject object)
 	{	
 		this.e = e;
 		base = e.getPos();
-		
-		float width = 2f;
-		float height = 2f;
+		parent = object;
+		float width = 1f;
+		float height = 1f;
 		
 		collider1 = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
 		collider2 = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
@@ -40,7 +46,23 @@ public class InterfaceTrigger extends GObject implements Collides
 		e.o.getTransform().setPos(base);
 		if(Input.getKey(GLFW_KEY_E))
 		{
-			System.out.println("We did it reddit!");
+			//System.out.println("We did it reddit!");
+			if(parent instanceof ServingTable)
+			{
+				MainGame.mainPlayer.get(0);
+			}
+			if(parent instanceof SpecialTable)
+			{
+				MainGame.mainPlayer.place(0);
+			}
+			if(parent instanceof SpecialChair)
+			{
+				MainGame.mainPlayer.eat(0);
+			}
+			if(parent instanceof Backpack)
+			{
+				MainGame.mainPlayer.bag(0);
+			}
 		}
 	}
 	

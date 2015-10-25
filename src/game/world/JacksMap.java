@@ -113,9 +113,9 @@ public class JacksMap extends subgame
 		sc.setRotY(270);
 		World.New(sc);
 		
-		sc = new SpecialChair(1.3f,0f,-6f);
-		sc.setRotY(90);
-		World.New(sc);
+//		sc = new SpecialChair(1.3f,0f,-6f);
+//		sc.setRotY(90);
+//		World.New(sc);
 		
 		SpecialTable st = new SpecialTable(1f,0f,-6f);
 		World.New(st);

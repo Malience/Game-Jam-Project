@@ -7,6 +7,7 @@ import com.base.engine.physics.AABB;
 
 import game.GObject;
 import game.RCObject;
+import game.world.MainGame;
 import game.world.Node;
 import game.world.NodeTree;
 
@@ -49,6 +50,8 @@ public class Worker extends Mob
 	//controls movement
 	public void move(float delta)
 	{
+		if(MainGame.mainPlayer.suspicion())
+			target = MainGame.mainPlayer;
 		if(target!=null)
 		{
 			if(target instanceof Node)

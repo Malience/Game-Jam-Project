@@ -50,4 +50,14 @@ public class Table {
 		onTable[food]--;
 	}
 	
+	public void rid(int food, int amt)
+	{
+		onTable[food]-=amt;
+	}
+	
+	public void placeFood(int food, int amt)
+	{
+		onTable[food]+=amt;
+	}
+	
 }

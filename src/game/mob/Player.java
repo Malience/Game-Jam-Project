@@ -16,6 +16,7 @@ public class Player extends Mob
 	
 //=======
 	private int[] foodFill = {0,0,0,0};
+	private int[] foods = {0,0,0,0};
 //>>>>>>> 9544138af48da768eeae62e4a8f1e83069687750
 	private int fullness = 0;
 	private int suspected = 0;
@@ -31,7 +32,7 @@ public class Player extends Mob
 		setMesh("man002.obj");
 	}
 	
-	private void suspicion()
+	public boolean suspicion()
 	{
 		//visit to fast
 		//add to suspicion
@@ -39,25 +40,63 @@ public class Player extends Mob
 		//caught
 		//game over
 		
-		if (suspected >= maxSus)
-		{
-			//game over
-		}
+		return suspected >= maxSus;
 	}
 		
 	public void eat(int food)
 	{
-		//eat item
-		fullness += foodFill[food];
-		//subtracts the item from the table
-		table.rid(food);
-		coma();
+		if(table.getFood()[food]>0)
+		{
+			//eat item
+			fullness += foodFill[food];
+			//subtracts the item from the table
+			table.rid(food);
+			System.out.println("Om nom nom!");
+			suspected-=10;
+			if(suspected<0) suspected = 0;
+			coma();
+		}
+		else
+		{
+			System.out.println("No food");
+		}
+			
 	}
+	
+	public void get(int food)
+	{
+		System.out.println("Grabbed some food!");
+		foods[food]++;
+	}
+	
+	public void place(int food)
+	{
+		if(foods[food]>0)
+		{
+			System.out.println("Placed food!");
+			foods[food]--;
+			table.placeFood(food, 1);
+		}
+		else
+			System.out.println("Out of food!");
+	}
+	
 	
 	public void bag(int food)
 	{
-		//bag item
-		inv.addFood(food);
+		if(table.getFood()[food]>0)
+		{
+			//bag item
+			inv.addFood(food);
+			suspected+=10;
+			if(suspected>maxSus) suspected = maxSus;
+			System.out.println("Bagged food! Profit: ");
+			System.out.println(inv.profit());
+		}
+		else
+		{
+			System.out.println("No food");
+		}
 	}
 	
 	private void coma()
