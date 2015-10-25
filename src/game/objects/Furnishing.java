@@ -4,8 +4,9 @@ import com.base.engine.physics.Collider;
 
 import game.Collides;
 import game.GObject;
+import game.RObject;
 
-public abstract class Furnishing extends GObject implements Collides
+public abstract class Furnishing extends RObject implements Collides
 {
 	private Collider collider;
 	private boolean density;

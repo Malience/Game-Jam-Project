@@ -1,19 +1,19 @@
 package com.base.engine.physics;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.base.engine.components.PhysicsComponent;
 import com.base.engine.core.Vector3f;
 
 public class PhysicsEngine 
 {
-	ArrayList<IntersectData> collisions;
-	ArrayList<Collider> colliders;
+	HashMap<Collider, IntersectData> collisions;
 	public static PhysicsComponent important;
 	
 	public PhysicsEngine()
 	{
-		collisions = new ArrayList<IntersectData>();
+		collisions = new HashMap<Collider, IntersectData>();
 	}
 	
 	
@@ -33,19 +33,19 @@ public class PhysicsEngine
 					important.getTransform().setPos(important.getTransform().getPos().sub(new Vector3f(i.getDirection().getX(), 0, i.getDirection().getZ()).normalized().mul(i.getDistance()).mul(-1)));
 					if(i.getDoesIntersect()) System.out.println("Collides!");
 				}
-				addCollision(i);
+				addCollision(object.getCollider(), i);
 				//if(i.getDoesIntersect()) System.out.println("Collides!");
 		}
 	}
 	
-	public void addCollision(IntersectData id)
+	public void addCollision(Collider c, IntersectData id)
 	{
-		collisions.add(id);
+		collisions.put(c, id);
 	}
 	
-	public ArrayList<IntersectData> getCollisions()
+	public IntersectData getCollision(Collider c)
 	{
-		return collisions;
+		return collisions.get(c);
 	}
 	
 	

@@ -7,6 +7,7 @@ import com.base.engine.components.FreeLook;
 import com.base.engine.components.FreeMove;
 import com.base.engine.components.MeshRenderer;
 import com.base.engine.components.PhysicsComponent;
+import com.base.engine.components.TriggerComponent;
 import com.base.engine.core.Game;
 import com.base.engine.core.GameObject;
 import com.base.engine.core.Vector2f;
@@ -24,8 +25,12 @@ import com.base.engine.rendering.Window;
 import game.Player;
 import game.TestObject;
 import game.interfaces.E;
+import game.interfaces.Interface;
+import game.interfaces.InterfaceTrigger;
+import game.objects.ServingTable;
 import game.objects.Table;
 import game.objects.Wall;
+import game.objects.food.PizzaSlice;
 
 public class MainGame extends Game
 {
@@ -68,26 +73,41 @@ public class MainGame extends Game
 		MeshRenderer plane = new MeshRenderer(mesh, material);
 		addObject(new GameObject().addComponent(plane));
 		
+		
+		
+		
+		
+		//PLAYER**********************
 		Player player = new Player(1,0,0);
 		GameObject playerObject = new GameObject();/*.addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10))*/
 		playerObject.getTransform().setPos(player.getPos());
 		playerObject.getTransform().setScale(player.getScale());
 		playerObject.addComponent(player.getRender());
-		GameObject cam = new GameObject();
-		Camera camera = new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f);
-		//RenderingEngine.mainCamera = camera;
+		//END PLAYER**********************
 		
+		
+		//PLAYER PHYSICS COMPONENT
 		PhysicsComponent pc = player.getComponent();
 		PhysicsEngine.important = pc;
 		playerObject.addComponent(pc);
+		//END PLAYER PHYSICS COMPONENT
+		
+		//CAMERA********************
+		GameObject cam = new GameObject();
+		Camera camera = new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f);
+		//RenderingEngine.mainCamera = camera;
 		
 		playerObject.addChild(cam);
 		cam.addComponent(camera);
 		camera.getTransform().setPos(new Vector3f(0,400.0f,-100));
 		camera.getTransform().rotate(new Vector3f(1,0,0), 45f);
 		//cam.addComponent(new FreeLook(2.0f));
-		playerObject.addComponent(new FreeMove(3.0f));
+		playerObject.addComponent(new FreeMove(3.0f)); //Movement
 		
+		//END CAMERA********************
+		
+		
+		//INTERFACE************
 		GameObject interfaces = new GameObject();
 		
 		cam.addChild(interfaces);
@@ -105,32 +125,18 @@ public class MainGame extends Game
 		ee.getTransform().rotate(new Vector3f(0,1,0), (float)Math.toRadians(e.getRotY()));
 		ee.getTransform().rotate(new Vector3f(0,0,1), (float)Math.toRadians(e.getRotZ()));
 		
-		//playerObject.addComponent(new FreeLook(10.0f));
+		e.o = ee;
 		
-//		GameObject playerObject = new GameObject().addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10)).addComponent(new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f));
-//		PhysicsEngine.important = new PhysicsComponent(new AABB(new Vector3f(1,0,0), 1.0f, 1.0f), false);
-//		playerObject.addComponent(PhysicsEngine.important);
+		Interface.InteractE = e;
+		//END INTERFACE************
+		
+		
 		
 		
 		addObject(directionalLightObject);
 		addObject(playerObject);
 		
-		Table table = new Table(0,0,1);
-		
-		GameObject to = new GameObject();
-		to.addComponent(table.getComponent());
-		to.addComponent(table.getRender());
-		to.getTransform().setPos(table.getPos());
-		to.getTransform().setScale(table.getScale());
-		
-		
-		addObject(to);
-//		World.New(new TestObject(0,0,0));
-//		World.New(new Wall(0,0,3));
-//		World.New(new Wall(1f,0,3));
-//		World.New(new Wall(2,0,3));
-//		World.New(new Wall(3,0,3));
-		//World.New(new Table(0,0,1));
+		World.New(new Table(0,0,1));
 		
 		new MattsMap();
 		new JacksMap();

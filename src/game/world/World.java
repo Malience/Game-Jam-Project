@@ -1,5 +1,6 @@
 package game.world;
 
+import com.base.engine.components.TriggerComponent;
 import com.base.engine.core.Game;
 import com.base.engine.core.GameObject;
 import com.base.engine.core.Vector3f;
@@ -7,6 +8,7 @@ import com.base.engine.core.Vector3f;
 import game.Collides;
 import game.GObject;
 import game.Renderable;
+import game.interfaces.InterfaceTrigger;
 
 public class World 
 {
@@ -14,7 +16,20 @@ public class World
 	
 	public static void New(GObject object)
 	{
+		GameObject main = construct(object);
+		
+		for(GObject child : object.getChildren())
+		{
+			addChild(main, child);
+		}
+		
+		game.addObject(main);
+	}
+	
+	private static GameObject construct(GObject object)
+	{
 		GameObject o = new GameObject();
+		
 		
 		
 		o.getTransform().setPos(object.getPos());
@@ -27,14 +42,30 @@ public class World
 		
 		if(object instanceof Renderable)
 		{
-			o.addComponent(object.getRender());
+			Renderable r = (Renderable) object;
+			o.addComponent(r.getRender());
 		}
 		if(object instanceof Collides)
 		{
 			Collides c = (Collides) object;
 			o.addComponent(c.getComponent());
 		}
+		if(object instanceof InterfaceTrigger)
+		{
+			InterfaceTrigger c = (InterfaceTrigger) object;
+			o.addComponent(new TriggerComponent(c));
+		}
 		
-		game.addObject(o);
+		return o;
+	}
+	
+	private static void addChild(GameObject parent, GObject object)
+	{
+		GameObject o = construct(object);
+		parent.addChild(o);
+		for(GObject child : object.getChildren())
+		{
+			addChild(o, child);
+		}
 	}
 }
