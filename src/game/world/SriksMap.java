@@ -26,6 +26,7 @@ public class SriksMap extends subgame
 		World.New(t);
 		
 		World.New(new Counter(0f, 0f, 5f));
+		World.New(new Counter(.3f, 0f, 5f));
 		
 		//World.New(new Table (-8f, 0f, 8f));
 		World.New(new Table (-6f, 0f, 6f));
