@@ -29,8 +29,8 @@ public class AABB extends Collider
 	
 	public IntersectData intersectAABB(AABB other)
 	{
-		Vector3f distances1 = other.getMinExtents().rotate(other.getRot()).sub(getMaxExtents().rotate(rot));
-		Vector3f distances2 = getMinExtents().rotate(rot).sub(other.getMaxExtents().rotate(other.getRot()));
+		Vector3f distances1 = other.getRot().toRotationMatrix().transform(other.getMinExtents()).sub(rot.toRotationMatrix().transform(getMaxExtents()));
+		Vector3f distances2 = rot.toRotationMatrix().transform(getMinExtents()).sub(other.getRot().toRotationMatrix().transform(other.getMaxExtents()));
 		Vector3f distances = distances1.max(distances2);
 		
 		float maxDistance = distances.max();
