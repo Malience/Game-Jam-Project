@@ -24,6 +24,9 @@ public class PhysicsEngine
 			//System.out.println("Collide Start!");
 			important.getCollider().setCenter(important.getTransform().getPos());
 			object.getCollider().setCenter(object.getTransform().getPos());
+			
+			important.getCollider().setRot(important.getTransform().getRot());
+			object.getCollider().setRot(object.getTransform().getRot());
 				IntersectData i = object.getCollider().intersect(important.getCollider());
 				if(object.getDensity() && i.getDoesIntersect())
 				{

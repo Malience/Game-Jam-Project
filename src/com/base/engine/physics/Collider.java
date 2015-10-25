@@ -55,6 +55,10 @@ public class Collider extends ReferenceCounter
 	{
 	}
 	
+	public void setRot(Quaternion rot)
+	{
+	}
+	
 	public int getType() {
 		return type;
 	}

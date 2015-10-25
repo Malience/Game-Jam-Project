@@ -1,11 +1,13 @@
 package com.base.engine.physics;
 
+import com.base.engine.core.Quaternion;
 import com.base.engine.core.Vector3f;
 
 public class AABB extends Collider
 {
 	private Vector3f minExtents;
 	private Vector3f maxExtents;
+	private Quaternion rot;
 	
 	public AABB(Vector3f center, float width, float height)
 	{
@@ -21,14 +23,14 @@ public class AABB extends Collider
 	
 	public IntersectData intersectAABB(AABB other)
 	{
-		Vector3f distances1 = other.getMinExtents().sub(getMaxExtents());
-		Vector3f distances2 = getMinExtents().sub(other.getMaxExtents());
+		Vector3f distances1 = other.getMinExtents().rotate(other.getRot()).sub(getMaxExtents().rotate(rot));
+		Vector3f distances2 = getMinExtents().rotate(rot).sub(other.getMaxExtents().rotate(other.getRot()));
 		Vector3f distances = distances1.max(distances2);
 		
 		float maxDistance = distances.max();
 		
-		Vector3f v1 = minExtents.add(maxExtents).mul(1/2f);
-		Vector3f v2 = other.getMinExtents().add(other.getMaxExtents()).mul(1/2f);
+		Vector3f v1 = minExtents.rotate(rot).add(maxExtents.rotate(rot)).mul(1/2f);
+		Vector3f v2 = other.getMinExtents().rotate(other.getRot()).add(other.getMaxExtents().rotate(other.getRot())).mul(1/2f);
 		
 		return new IntersectData(maxDistance < 0, maxDistance, v1.sub(v2).normalized());
 	}
@@ -81,6 +83,16 @@ public class AABB extends Collider
 		Vector3f v = minExtents.sub(maxExtents).mul(1/2f);
 		minExtents = center.sub(v);
 		maxExtents = center.add(v);
+	}
+	
+	public void setRot(Quaternion rot)
+	{
+		this.rot = rot;
+	}
+	
+	public Quaternion getRot()
+	{
+		return rot;
 	}
 	
 }
