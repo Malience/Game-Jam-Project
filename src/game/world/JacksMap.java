@@ -244,8 +244,23 @@ public class JacksMap extends subgame
 		NodeTree.connect(fn, cn);
 		NodeTree.connect(cn, n1);
 		
-		Worker w = new Worker(3,0,2);
+		Worker w = new Worker(5,0,2);
 		w.setTarget(n1);
 		World.New(w);
+		
+		//next
+		Node n10 = NodeTree.setNode(1,0,-3);
+		Node n11 = NodeTree.setNode(3,0,-5);
+		Node n12 = NodeTree.setNode(0, 0,-5);
+		Node n13 = NodeTree.setNode(4, 0, -4);
+		
+		NodeTree.connect(n10, n11);
+		NodeTree.connect(n11, n12);
+		NodeTree.connect(n12, n13);
+		NodeTree.connect(n13, n10);
+		
+		Worker w2 = new Worker(3,0,-5);
+		w2.setTarget(n12);
+		World.New(w2);
 	}
 }
