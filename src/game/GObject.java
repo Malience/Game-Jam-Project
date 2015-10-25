@@ -102,4 +102,18 @@ public abstract class GObject
 	{
 		return rotz;
 	}
+	
+	public static float getDistance(GObject object1, GObject object2)
+	{
+		Vector3f v = object1.getThis().getTransform().getPos().sub(object2.getThis().getTransform().getPos());
+		v = v.mul(v);
+		return (float)Math.sqrt(v.length());
+	}
+	
+	public float getDistance(GObject object)
+	{
+		Vector3f v = getThis().getTransform().getPos().sub(object.getThis().getTransform().getPos());
+		v = v.mul(v);
+		return (float)Math.sqrt(v.length());
+	}
 }

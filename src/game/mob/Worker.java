@@ -7,6 +7,8 @@ import com.base.engine.physics.AABB;
 
 import game.GObject;
 import game.RCObject;
+import game.world.Node;
+import game.world.NodeTree;
 
 public class Worker extends Mob
 {
@@ -49,7 +51,23 @@ public class Worker extends Mob
 	{
 		if(target!=null)
 		{
-			getThis().getTransform().setPos((target.getThis().getTransform().getPos().sub(getThis().getTransform().getPos()).mul(1/2f).normalized().mul(speed*delta)).add(getThis().getTransform().getPos()));
+			if(target instanceof Node)
+			{
+				getThis().getTransform().setPos((target.getPos().sub(getThis().getTransform().getPos()).mul(1/2f).normalized().mul(speed*delta)).add(getThis().getTransform().getPos()));
+				float check = NodeTree.getDistance(this, (Node)target);
+				//System.out.println(check);
+				if(check<=.1f)
+				{
+					Node n = NodeTree.getRandomConnected((Node)target);
+					if(n != null)
+						target = n;
+				}
+			}
+			else
+			{
+				getThis().getTransform().setPos((target.getThis().getTransform().getPos().sub(getThis().getTransform().getPos()).mul(1/2f).normalized().mul(speed*delta)).add(getThis().getTransform().getPos()));
+			}
+			
 		}
 //		boolean go = turn();
 //		int dir = 0;

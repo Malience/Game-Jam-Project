@@ -133,16 +133,12 @@ public class MainGame extends Game
 		//END INTERFACE************
 		
 		
-		Worker w = new Worker(-3,0,0);
-		w.setTarget(player);
-		World.New(w);
 		
 		
 		addObject(directionalLightObject);
 		addObject(playerObject);
 		
 		World.New(new Table(0,0,1));
-		
 		new MattsMap();
 		new JacksMap();
 		new SriksMap();

@@ -29,7 +29,15 @@ public class MattsMap extends subgame
 		World.New(new SpecialChair(-4,0,-4));
 		World.New(new Backpack(-5,0,-4));
 		
-		World.New(new Node(3,0,0));
+		Node n1 = NodeTree.setNode(3,0,0);
+		Node n2 = NodeTree.setNode(-3,0,0);
+		Node n3 = NodeTree.setNode(-3,0,-2);
+		NodeTree.connect(n1, n2);
+		NodeTree.connect(n1, n3);
+		
+		Worker w = new Worker(-3,0,0);
+		w.setTarget(n1);
+		World.New(w);
 //		World.New(new PizzaSlice(0,0,3));
 	}
 }
