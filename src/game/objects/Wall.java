@@ -7,11 +7,8 @@ import com.base.engine.physics.Collider;
 import game.Collides;
 import game.GObject;
 
-public class Wall extends Furnishing implements Collides
+public class Wall extends Furnishing
 {
-	Collider collider;
-	boolean density;
-	
 	public Wall(float x, float y, float z) {
 		super(x, y, z);
 		

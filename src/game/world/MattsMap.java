@@ -1,6 +1,7 @@
 package game.world;
 
 import game.objects.Oven;
+import game.objects.Wall;
 
 public class MattsMap extends subgame
 {
@@ -13,5 +14,13 @@ public class MattsMap extends subgame
 		 */
 		
 		World.New(new Oven(0,0,3));
+		World.New(new Wall(0,0,5));
+		World.New(new Wall(0,0,5));
+		World.New(new Wall(0,0,5));
+		World.New(new Wall(0,0,5));
+		World.New(new Wall(0,0,5));
+		World.New(new Wall(0,0,5));
+		World.New(new Wall(0,0,5));
+		World.New(new Wall(0,0,5));
 	}
 }
