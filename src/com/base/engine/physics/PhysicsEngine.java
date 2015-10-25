@@ -31,7 +31,7 @@ public class PhysicsEngine
 				if(object.getDensity() && i.getDoesIntersect())
 				{
 					important.getTransform().setPos(important.getTransform().getPos().sub(new Vector3f(i.getDirection().getX(), 0, i.getDirection().getZ()).normalized().mul(i.getDistance()).mul(-1)));
-					if(i.getDoesIntersect()) System.out.println("Collides!");
+					//if(i.getDoesIntersect()) System.out.println("Collides!");
 				}
 				addCollision(object.getCollider(), i);
 				//if(i.getDoesIntersect()) System.out.println("Collides!");

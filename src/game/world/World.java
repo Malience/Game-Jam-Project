@@ -48,7 +48,8 @@ public class World
 		if(object instanceof Collides)
 		{
 			Collides c = (Collides) object;
-			o.addComponent(c.getComponent());
+			o.addComponent(c.getComponent1());
+			o.addComponent(c.getComponent2());
 		}
 		if(object instanceof InterfaceTrigger)
 		{

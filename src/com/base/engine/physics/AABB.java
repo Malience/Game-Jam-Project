@@ -21,6 +21,12 @@ public class AABB extends Collider
 		this.maxExtents = maxExtents;
 	}
 	
+	public AABB(AABB aabb) {
+		super(TYPE_AABB);
+		this.minExtents = new Vector3f(aabb.minExtents);
+		this.maxExtents = new Vector3f(aabb.maxExtents);
+	}
+	
 	public IntersectData intersectAABB(AABB other)
 	{
 		Vector3f distances1 = other.getMinExtents().rotate(other.getRot()).sub(getMaxExtents().rotate(rot));

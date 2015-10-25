@@ -1,10 +1,13 @@
 package game.world;
 
+import game.objects.Backpack;
 import game.objects.Chair;
 import game.objects.Counter;
 import game.objects.DrinkMachine;
 import game.objects.Oven;
 import game.objects.ServingTable;
+import game.objects.SpecialChair;
+import game.objects.SpecialTable;
 import game.objects.Wall;
 import game.objects.food.Pizza;
 import game.objects.food.PizzaPan;
@@ -20,7 +23,10 @@ public class MattsMap extends subgame
 		 * Then put them into the game with World.New(Object);
 		 */
 		new Pizza(0,0,3);
-		World.New(new ServingTable(4,0,0));
+		World.New(new ServingTable(-4,0,0));
+		World.New(new SpecialTable(-4,0,-3));
+		World.New(new SpecialChair(-4,0,-4));
+		World.New(new Backpack(-5,0,-4));
 //		World.New(new PizzaSlice(0,0,3));
 	}
 }

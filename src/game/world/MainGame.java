@@ -87,7 +87,7 @@ public class MainGame extends Game
 		
 		
 		//PLAYER PHYSICS COMPONENT
-		PhysicsComponent pc = player.getComponent();
+		PhysicsComponent pc = player.getComponent1();
 		PhysicsEngine.important = pc;
 		playerObject.addComponent(pc);
 		//END PLAYER PHYSICS COMPONENT

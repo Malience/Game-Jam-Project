@@ -1,5 +1,6 @@
 package game.objects;
 
+import com.base.engine.physics.AABB;
 import com.base.engine.physics.Collider;
 
 import game.Collides;
@@ -8,7 +9,8 @@ import game.RObject;
 
 public abstract class Furnishing extends RObject implements Collides
 {
-	private Collider collider;
+	private Collider collider1;
+	private Collider collider2;
 	private boolean density;
 	
 	public Furnishing(float x, float y, float z)
@@ -17,8 +19,13 @@ public abstract class Furnishing extends RObject implements Collides
 	}
 	
 	@Override
-	public Collider getCollider() {
-		return collider;
+	public Collider getCollider1() {
+		return collider1;
+	}
+	
+	@Override
+	public Collider getCollider2() {
+		return collider2;
 	}
 
 	@Override
@@ -28,7 +35,9 @@ public abstract class Furnishing extends RObject implements Collides
 	
 	@Override
 	public void setCollider(Collider collider) {
-		this.collider = collider;
+		this.collider1 = collider;
+		if(collider.getType() == collider.TYPE_AABB)
+			this.collider2 = (Collider) new AABB((AABB)collider);
 	}
 
 	@Override

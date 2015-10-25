@@ -17,6 +17,14 @@ public class Collider extends ReferenceCounter
 		this.type = type;
 	}
 	
+	public Collider(Collider collider) {
+		super();
+		this.type = collider.type;
+	}
+//	public Collider(AABB aabb) {
+//		(AABB)this();
+//	}
+
 	public IntersectData intersect(Collider other)
 	{
 		if(type == TYPE_SPHERE && other.getType() == TYPE_SPHERE)
@@ -57,6 +65,7 @@ public class Collider extends ReferenceCounter
 	
 	public void setRot(Quaternion rot)
 	{
+		
 	}
 	
 	public int getType() {

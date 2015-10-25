@@ -112,6 +112,14 @@ public class Transform
 		return pos;
 	}
 	
+//	public Vector3f getOverallPos(Vector3f pos)
+//	{
+//		pos.add(this.pos);
+//		if(parent!=null)
+//			pos = parent.getOverallPos(pos);
+//		return pos;
+//	}
+	
 	public void setPos(Vector3f pos)
 	{
 		this.pos = pos;

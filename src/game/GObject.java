@@ -55,6 +55,12 @@ public abstract class GObject
 		this.y = y;
 		this.z = z;
 	}
+	public void setPos(Vector3f v)
+	{
+		this.x = v.getX();
+		this.y = v.getY();
+		this.z = v.getZ();
+	}
 	
 	public void setRotX(float r)
 	{

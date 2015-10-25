@@ -13,7 +13,8 @@ import game.objects.food.PizzaSlice;
 
 public class InterfaceTrigger extends GObject implements Collides
 {
-	public Collider collider;
+	public Collider collider1;
+	public Collider collider2;
 	public boolean density;
 	public E e;
 	public Vector3f base;
@@ -27,7 +28,8 @@ public class InterfaceTrigger extends GObject implements Collides
 		float width = 2f;
 		float height = 2f;
 		
-		collider = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
+		collider1 = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
+		collider2 = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
 		density = false;
 		
 		getChildren().add(new PizzaSlice(0,0,0));
@@ -49,9 +51,14 @@ public class InterfaceTrigger extends GObject implements Collides
 	
 	
 	@Override
-	public Collider getCollider() {
+	public Collider getCollider1() {
 		// TODO Auto-generated method stub
-		return collider;
+		return collider1;
+	}
+	@Override
+	public Collider getCollider2() {
+		// TODO Auto-generated method stub
+		return collider2;
 	}
 
 	@Override
@@ -62,9 +69,10 @@ public class InterfaceTrigger extends GObject implements Collides
 
 	@Override
 	public void setCollider(Collider collider) {
-		this.collider = collider;
-		
+		this.collider1 = collider;
+		this.collider2 = new Collider(collider);
 	}
+	
 
 	@Override
 	public void setDensity(boolean density) {

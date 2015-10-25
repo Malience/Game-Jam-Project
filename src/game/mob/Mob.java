@@ -26,7 +26,7 @@ public class Mob extends RObject implements Collides
 //		{
 //			Worker w = new Worker();
 //		}
-//		else if (rank == 's')
+//		else if (rank == 's') //hi
 //		{
 //			Student s = new Student();
 //		}
@@ -37,7 +37,7 @@ public class Mob extends RObject implements Collides
 //	}
 
 	@Override
-	public Collider getCollider() {
+	public Collider getCollider1() {
 		return collider;
 	}
 
@@ -54,5 +54,11 @@ public class Mob extends RObject implements Collides
 	@Override
 	public void setDensity(boolean density) {
 		this.density = density;
+	}
+
+	@Override
+	public Collider getCollider2() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
