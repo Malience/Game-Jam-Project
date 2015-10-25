@@ -13,6 +13,7 @@ import game.objects.Wall;
 import game.objects.food.Cookie;
 import game.objects.food.Fries;
 import game.objects.food.IceCream;
+import game.objects.food.Oranges;
 
 import com.base.engine.core.GameObject;
 
@@ -32,7 +33,7 @@ public class JacksMap extends subgame
 		createDrinkExp();
 		createFryStation();
 		createIceCreamStation();
-		
+		createOrangeStation();
 		
 	}
 
@@ -203,4 +204,24 @@ public class JacksMap extends subgame
 		ic.setRotY(225);
 		World.New(ic);
 	} // create Ice cream station
+
+	public void createOrangeStation()
+	{
+		Oranges og;
+		Counter ctr;
+		float z = -2;
+		
+		//counters
+		for(float i = 0; i < 4; i++)
+		{
+			z += 0.25;
+			ctr = new Counter(7f,0f,z);
+			World.New(ctr);
+		}
+		
+		
+		
+		og = new Oranges(7f,0f,-1.5f);
+		World.New(og);
+	}
 }
