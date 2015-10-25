@@ -1,9 +1,10 @@
 package game.objects.food;
 
 import game.GObject;
+import game.RObject;
 import game.objects.Furnishing;
 
-public class PizzaPan extends GObject
+public class PizzaPan extends RObject
 {
 	public PizzaPan(float x, float y, float z) {
 		super(x, y, z);

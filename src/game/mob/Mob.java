@@ -5,9 +5,10 @@ import com.base.engine.physics.Collider;
 import game.Collides;
 import game.GObject;
 import game.Player;
+import game.RObject;
 import game.Student;
 
-public class Mob extends GObject implements Collides
+public class Mob extends RObject implements Collides
 {
 	Collider collider;
 	boolean density;

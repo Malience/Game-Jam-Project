@@ -1,12 +1,17 @@
 package game.objects;
 
+import com.base.engine.components.TriggerComponent;
+import com.base.engine.core.GameObject;
 import com.base.engine.core.Vector3f;
 import com.base.engine.physics.AABB;
 import com.base.engine.physics.Collider;
 
 import game.Collides;
 import game.GObject;
+import game.interfaces.Interface;
+import game.interfaces.InterfaceTrigger;
 import game.objects.food.Pizza;
+import game.objects.food.PizzaSlice;
 
 public class ServingTable extends Furnishing
 {
@@ -29,6 +34,8 @@ public class ServingTable extends Furnishing
 		setDensity(true);
 		
 		pizza = new Pizza(x,y + height,z);
+		
+		getChildren().add(new InterfaceTrigger(0,0,-1,Interface.InteractE));
 	}
 
 

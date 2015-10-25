@@ -14,7 +14,7 @@ public class Counter extends Furnishing
 		super(x, y, z);
 		
 		setScale(0.01f);
-		setTexture("bricks.jpg");
+		setTexture("countercolorrotate.png");
 		setMesh("counterBase.obj");
 		
 		float width = .9f;

@@ -1,6 +1,6 @@
 package game;
 
-public class TestObject extends GObject implements Renderable
+public class TestObject extends RObject
 {
 	
 	public TestObject(float x, float y, float z) {

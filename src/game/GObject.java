@@ -10,12 +10,10 @@ import com.base.engine.rendering.Material;
 import com.base.engine.rendering.Mesh;
 import com.base.engine.rendering.Texture;
 
-public abstract class GObject implements Renderable 
+public abstract class GObject
 {
 	private float x,y,z,scale,rotx,roty,rotz;
 	private ArrayList<GObject> children;
-	private String texture;
-	private String mesh;
 	
 	public GObject()
 	{
@@ -28,9 +26,12 @@ public abstract class GObject implements Renderable
 		this.y = y;
 		this.z = z;
 		setScale(1.0f);
-		setTexture("test.png");
-		setMesh("monkey3.obj");
-		children = null;
+		children = new ArrayList<GObject>();
+	}
+	
+	public ArrayList<GObject> getChildren()
+	{
+		return children;
 	}
 	
 	public float getScale()
@@ -83,25 +84,5 @@ public abstract class GObject implements Renderable
 	public float getRotZ()
 	{
 		return rotz;
-	}
-	
-	@Override
-	public String getTexture() {
-		return texture;
-	}
-
-	@Override
-	public String getMesh() {
-		return mesh;
-	}
-	
-	@Override
-	public void setTexture(String texture) {
-		this.texture = texture;
-	}
-
-	@Override
-	public void setMesh(String mesh) {
-		this.mesh = mesh;
 	}
 }

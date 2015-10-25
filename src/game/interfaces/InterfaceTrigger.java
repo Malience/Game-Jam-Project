@@ -1,22 +1,50 @@
 package game.interfaces;
 
+import com.base.engine.core.Input;
+import com.base.engine.core.Vector3f;
+import com.base.engine.physics.AABB;
 import com.base.engine.physics.Collider;
 
-import game.Collides;
+import static org.lwjgl.glfw.GLFW.*;
 
-public class InterfaceTrigger implements Collides
+import game.Collides;
+import game.GObject;
+import game.objects.food.PizzaSlice;
+
+public class InterfaceTrigger extends GObject implements Collides
 {
-	Collider collider;
-	boolean density;
-	boolean triggered;
-	float x,y,z;
+	public Collider collider;
+	public boolean density;
+	public E e;
+	public Vector3f base;
 	
 	
-	public InterfaceTrigger(float x, float y, float z)
+	public InterfaceTrigger(float x, float y, float z, E e)
+	{	
+		this.e = e;
+		base = e.getPos();
+		
+		float width = 2f;
+		float height = 2f;
+		
+		collider = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
+		density = false;
+		
+		getChildren().add(new PizzaSlice(0,0,0));
+	}
+	
+	public void trigger()
 	{
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		e.o.getTransform().setPos(base);
+		if(Input.getKey(GLFW_KEY_E))
+		{
+			System.out.println("We did it reddit!");
+		}
+	}
+	
+	public void detrigger()
+	{
+		e.o.getTransform().setPos(new Vector3f(0, 3, 0));
 	}
 	
 	
