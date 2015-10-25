@@ -2,6 +2,7 @@ package game.world;
 
 import java.util.ArrayList;
 
+import game.mob.Worker;
 import game.objects.Backpack;
 import game.objects.Counter;
 import game.objects.DrinkMachine;
@@ -34,7 +35,8 @@ public class JacksMap extends subgame
 		createFryStation();
 		createIceCreamStation();
 		createOrangeStation();
-		
+		nodes();
+
 	}
 
 	public void createWalls()
@@ -228,5 +230,22 @@ public class JacksMap extends subgame
 			og = new Oranges(7.05f,0.2f,z);
 			World.New(og);
 		}
+	}
+
+	public void nodes()
+	{		
+		Node icn = NodeTree.setNode(5,0,2);
+		Node n1 = NodeTree.setNode(3,0,0);
+		Node fn = NodeTree.setNode(-5, 0, 3);
+		Node cn = NodeTree.setNode(0, 0, 1);
+		
+		NodeTree.connect(n1, icn);
+		NodeTree.connect(icn, fn);
+		NodeTree.connect(fn, cn);
+		NodeTree.connect(cn, n1);
+		
+		Worker w = new Worker(3,0,2);
+		w.setTarget(n1);
+		World.New(w);
 	}
 }
