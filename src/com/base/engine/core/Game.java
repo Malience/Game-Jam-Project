@@ -24,11 +24,12 @@ public abstract class Game
 		renderingEngine.render(getRootObject());
 	}
 
-	static int i = 0;
+	//!--- Printing object number was used to debug which object crashed the game --!
+	//static int i = 0;
 	public void addObject(GameObject object)
 	{
-		i++;
-		System.out.println("Object " + i + " added!");
+		//i++;
+		//System.out.println("Object " + i + " added!");
 		getRootObject().addChild(object);
 	}
 
