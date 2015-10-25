@@ -15,7 +15,8 @@ public class FreeMove extends GameComponent
 	private int backKey;
 	private int leftKey;
 	private int rightKey;
-
+	Vector3f cf;
+	
 	public FreeMove(float speed)
 	{
 		this(speed, GLFW_KEY_W, GLFW_KEY_S, GLFW_KEY_A, GLFW_KEY_D);
@@ -46,7 +47,7 @@ public class FreeMove extends GameComponent
 	}
 
 	private void move(Vector3f dir, float amt)
-	{
+	{	
 		getTransform().setPos(getTransform().getPos().add(dir.mul(amt)));
 	}
 }
