@@ -124,6 +124,7 @@ public class JacksMap extends subgame
 		World.New(st);
 		
 		Backpack bp = new Backpack(1f,0f,-6.2f);
+		MainGame.backpack = bp;
 		World.New(bp);	
 	} //end specials
 

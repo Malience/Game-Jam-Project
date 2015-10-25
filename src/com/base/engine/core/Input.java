@@ -14,6 +14,8 @@ public class Input
 	static boolean[] currentKeys = new boolean[NUM_KEYS];
 	static boolean[] currentMouse = new boolean[NUM_MOUSE];
 	
+	static boolean[] prevKeys = new boolean[NUM_KEYS];
+	
 	static long MainWindow;
 	
 	//private static GLFWKeyCallback keyCallback;
@@ -54,6 +56,11 @@ public class Input
 	public static boolean getKey(int key)
 	{
 		return currentKeys[key];
+	}
+	
+	public static boolean getKeyPressed(int key)
+	{
+		return !currentKeys[key] && prevKeys[key];
 	}
 	
 	public static boolean getMouse(int mouse)

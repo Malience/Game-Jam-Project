@@ -7,6 +7,8 @@ import com.base.engine.physics.AABB;
 
 import game.GObject;
 import game.RCObject;
+import game.interfaces.Interface;
+import game.interfaces.InterfaceTrigger;
 import game.world.MainGame;
 import game.world.Node;
 import game.world.NodeTree;
@@ -23,7 +25,9 @@ public class Worker extends Mob
 		float height = .3f;
 		setTexture("workerrotate.png");
 		speed = 2;
-		setRotY(90);
+		//setRotY(90);
+		
+		getChildren().add(new InterfaceTrigger(0,0,0,Interface.InteractE,this));
 	}
 	
 	//turn or no turn

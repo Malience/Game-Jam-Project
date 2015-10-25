@@ -18,7 +18,7 @@ public class TriggerComponent extends GameComponent
 	{
 		if(physicsEngine.getCollision(trigger.getCollider()).getDoesIntersect())
 		{
-			trigger.trigger();
+			trigger.trigger(delta);
 		}
 		else
 		{

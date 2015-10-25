@@ -28,6 +28,7 @@ import game.interfaces.Interface;
 import game.interfaces.InterfaceTrigger;
 import game.mob.Player;
 import game.mob.Worker;
+import game.objects.Backpack;
 import game.objects.ServingTable;
 import game.objects.Table;
 import game.objects.Wall;
@@ -36,7 +37,7 @@ import game.objects.food.PizzaSlice;
 public class MainGame extends Game
 {
 	//The name of the program
-	public static final String NAME = "Cafeteria Crackdown";
+	public static final String NAME = "Test";
 	
 	//Screen's resolution
 	public static final int SCREEN_WIDTH = 800;
@@ -44,6 +45,7 @@ public class MainGame extends Game
 	
 	
 	public static Player mainPlayer;
+	public static Backpack backpack;
 	
 	//public static final 
 	

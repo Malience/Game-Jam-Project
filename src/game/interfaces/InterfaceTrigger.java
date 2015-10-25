@@ -9,6 +9,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 import game.Collides;
 import game.GObject;
+import game.mob.Worker;
 import game.objects.Backpack;
 import game.objects.ServingTable;
 import game.objects.SpecialChair;
@@ -41,11 +42,14 @@ public class InterfaceTrigger extends GObject implements Collides
 		getChildren().add(new PizzaSlice(0,0,0));
 	}
 	
-	public void trigger()
+	public float tr = 0;
+	public void trigger(float delta)
 	{
 		e.o.getTransform().setPos(base);
-		if(Input.getKey(GLFW_KEY_E))
+		tr-=delta;
+		if(tr < 0 && Input.getKey(GLFW_KEY_E))
 		{
+			tr+=.3f;
 			//System.out.println("We did it reddit!");
 			if(parent instanceof ServingTable)
 			{
@@ -62,6 +66,10 @@ public class InterfaceTrigger extends GObject implements Collides
 			if(parent instanceof Backpack)
 			{
 				MainGame.mainPlayer.bag(0);
+			}
+			if(parent instanceof Worker)
+			{
+				MainGame.mainPlayer.gameOver();
 			}
 		}
 	}
