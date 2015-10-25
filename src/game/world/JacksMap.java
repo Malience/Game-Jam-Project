@@ -219,9 +219,14 @@ public class JacksMap extends subgame
 			World.New(ctr);
 		}
 		
-		
-		
-		og = new Oranges(7f,0f,-1.5f);
-		World.New(og);
+		//oranges
+		z = (float)-0.9;
+
+		for(float i = 0; i < 13; i++)
+		{
+			z -= 0.07;
+			og = new Oranges(7.05f,0.2f,z);
+			World.New(og);
+		}
 	}
 }
