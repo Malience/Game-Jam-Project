@@ -155,7 +155,7 @@ public class MainGame extends Game
 		//END INTERFACE************
 		
 		
-		GameOver go = new GameOver(0,0, 20);
+		GameOver go = new GameOver(0,0, -10000);
 		go.setRotX(-90);
 		
 		GameObject gg = new GameObject();
@@ -163,7 +163,7 @@ public class MainGame extends Game
 		interfaces.addChild(gg);
 		
 		gg.getTransform().setPos(go.getPos());
-		gg.getTransform().setScale(e.getScale());
+		gg.getTransform().setScale(new Vector3f(.09f,.00000001f,.09f));
 		gg.getTransform().rotate(new Vector3f(1,0,0), (float)Math.toRadians(e.getRotX()));
 		gg.getTransform().rotate(new Vector3f(0,1,0), (float)Math.toRadians(e.getRotY()));
 		gg.getTransform().rotate(new Vector3f(0,0,1), (float)Math.toRadians(e.getRotZ()));
@@ -176,6 +176,7 @@ public class MainGame extends Game
 		
 		addObject(directionalLightObject);
 		addObject(playerObject);
+		
 		
 		World.New(new Table(0,0,1));
 		new MattsMap();

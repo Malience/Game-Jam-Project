@@ -13,7 +13,7 @@ public class GameOver extends RObject
 		super(x, y, z);
 		
 		setScale(0.01f);
-		setTexture("the e transparent.png");
+		setTexture("game over.png");
 		setMesh("plane64.obj");	
 	}
 }
