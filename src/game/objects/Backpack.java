@@ -25,7 +25,7 @@ public class Backpack extends Furnishing
 		setCollider(new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2)));
 		setDensity(false);
 		
-		InterfaceTrigger it = new InterfaceTrigger(0,0,0,Interface.InteractE);
+		InterfaceTrigger it = new InterfaceTrigger(0,0,0,Interface.InteractE,this);
 		it.setPos(it.getPos().add(getPos()));
 		getChildren().add(it);
 	}
