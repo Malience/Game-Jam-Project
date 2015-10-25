@@ -20,6 +20,7 @@ public class SriksMap extends subgame
 		//World.New(new Table (-2f, 0f, 5f));
 		//World.New(new Table (3f, 0f, -3f));
 		//World.New(new Table (5f, 0f, -2f));
+
 		TestObject t = new TestObject(0f, 0, 1f);
 		t.setScale(.001f);
 		World.New(t);
@@ -32,6 +33,14 @@ public class SriksMap extends subgame
 		//World.New(new Table (5f, 0f, -3f));
 		//World.New(new Table (5f, 0f, -5f));
 		//World.New(new Table (3f, 0f, 3f));
+		
+		//TestObject t = new TestObject(0f, 0, 1f);
+		//t.setScale(.001f);
+		//World.New(t);
+		
+
+		
+
 		//World.New(new Table (1f, 0f, 1f));
 		//World.New(new Table (1f, 0f, 1f));
 		

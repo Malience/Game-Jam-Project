@@ -13,7 +13,7 @@ public class Counter extends Furnishing
 	public Counter(float x, float y, float z) {
 		super(x, y, z);
 		
-		setScale(0.01f);
+		setScale(0.08f);
 		setTexture("countercolorrotate.png");
 		setMesh("counterBase.obj");
 		
