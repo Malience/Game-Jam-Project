@@ -7,8 +7,8 @@ import game.GObject;
 
 public class Furnishing extends GObject implements Collides
 {
-	Collider collider;
-	boolean density;
+	private Collider collider;
+	private boolean density;
 	
 	public Furnishing(float x, float y, float z)
 	{

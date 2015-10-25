@@ -7,16 +7,15 @@ import com.base.engine.physics.Collider;
 import game.Collides;
 import game.GObject;
 
-public class Oven extends Furnishing
+public class ServingTable extends Furnishing
 {
 
-	public Oven(float x, float y, float z) {
+	public ServingTable(float x, float y, float z) {
 		super(x, y, z);
 		
-		setScale(0.01f);
-		setRotY(-90);
+		setScale(0.002f);
 		setTexture("bricks2.jpg");
-		setMesh("oven001.obj");
+		setMesh("ServingTable001.obj");
 		
 		float width = .9f;
 		float height = .9f;

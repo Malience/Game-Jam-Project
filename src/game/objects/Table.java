@@ -19,7 +19,7 @@ public class Table extends Furnishing
 		setTexture("brown.png");
 		setMesh("table001.obj");
 		
-		collider = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
-		density = true;
+		setCollider(new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2)));
+		setDensity(true);
 	}
 }
