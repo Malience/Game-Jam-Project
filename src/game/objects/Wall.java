@@ -16,7 +16,11 @@ public class Wall extends Furnishing
 		setTexture("bricks2.jpg");
 		setMesh("wall100_100.obj");
 		
-		setCollider(new AABB(new Vector3f(x - 2.0f, y - 2.0f, z - .4f), new Vector3f(x + 2.0f, y + 2.0f, z + .3f)));
+		//collider = new AABB(new Vector3f(x - 2.0f, y - 2.0f, z - .4f), new Vector3f(x + 2.0f, y + 2.0f, z + .3f));
+		
+		setCollider(new AABB(new Vector3f(x - 0.5f, y - 2.0f, z - 0.1f), new Vector3f(x + 0.5f, y + 2.0f, z + 0.1f)));
+		
+		//
 		setDensity(true);
 	}
 }
