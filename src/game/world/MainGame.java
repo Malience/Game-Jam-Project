@@ -70,7 +70,7 @@ public class MainGame extends Game
 		Player player = new Player(1,0,0);
 		GameObject playerObject = new GameObject();/*.addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10))*/
 		playerObject.getTransform().setPos(player.getPos());
-		playerObject.getTransform().setScale(player.scale);
+		playerObject.getTransform().setScale(player.getScale());
 		playerObject.addComponent(player.getRender());
 		GameObject cam = new GameObject();
 		Camera camera = new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f);
@@ -102,7 +102,7 @@ public class MainGame extends Game
 		to.addComponent(table.getComponent());
 		to.addComponent(table.getRender());
 		to.getTransform().setPos(table.getPos());
-		to.getTransform().setScale(table.scale);
+		to.getTransform().setScale(table.getScale());
 		
 		
 		addObject(to);

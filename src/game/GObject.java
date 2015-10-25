@@ -12,10 +12,10 @@ import com.base.engine.rendering.Texture;
 
 public abstract class GObject implements Renderable 
 {
-	public float x,y,z,scale,rotx,roty,rotz;
-	public ArrayList<GObject> children;
-	public String texture;
-	public String mesh;
+	private float x,y,z,scale,rotx,roty,rotz;
+	private ArrayList<GObject> children;
+	private String texture;
+	private String mesh;
 	
 	public GObject()
 	{
@@ -31,6 +31,11 @@ public abstract class GObject implements Renderable
 		setTexture("test.png");
 		setMesh("monkey3.obj");
 		children = null;
+	}
+	
+	public float getScale()
+	{
+		return scale;
 	}
 	
 	public Vector3f getPos()

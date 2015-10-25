@@ -19,7 +19,7 @@ public class World
 		
 		o.getTransform().setPos(object.getPos());
 		
-		o.getTransform().setScale(object.scale);
+		o.getTransform().setScale(object.getScale());
 		
 		o.getTransform().rotate(new Vector3f(1,0,0), (float)Math.toDegrees(object.getRotX()));
 		o.getTransform().rotate(new Vector3f(0,1,0), (float)Math.toDegrees(object.getRotY()));

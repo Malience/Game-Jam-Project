@@ -7,7 +7,7 @@ import com.base.engine.physics.Collider;
 import game.Collides;
 import game.GObject;
 
-public class Wall extends GObject implements Collides
+public class Wall extends Furnishing implements Collides
 {
 	Collider collider;
 	boolean density;
@@ -21,17 +21,5 @@ public class Wall extends GObject implements Collides
 		
 		collider = new AABB(new Vector3f(x - 2.0f, y - 2.0f, z - .4f), new Vector3f(x + 2.0f, y + 2.0f, z + .3f));
 		density = true;
-		
 	}
-
-	@Override
-	public Collider getCollider() {
-		return collider;
-	}
-
-	@Override
-	public boolean getDensity() {
-		return density;
-	}
-
 }

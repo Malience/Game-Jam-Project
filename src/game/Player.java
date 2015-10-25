@@ -11,8 +11,6 @@ import game.mob.Mob;
 public class Player extends Mob implements Collides
 {
 //<<<<<<< HEAD
-	Collider collider;
-	boolean density;
 	
 	float width = .3f;
 	float height = .3f;
@@ -30,8 +28,8 @@ public class Player extends Mob implements Collides
 	public Player(float x, float y, float z)
 	{
 		super(x,y,z);
-		collider = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
-		density = true;
+		setCollider(new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2)));
+		setDensity(true);
 	}
 	
 	private void suspicion()
@@ -71,16 +69,4 @@ public class Player extends Mob implements Collides
 			fullness = 90;
 		}
 	}
-	
-	@Override
-	public Collider getCollider() {
-		return collider;
-	}
-	
-	@Override
-	public boolean getDensity() {
-		return density;
-	}
-	
-	
 }

@@ -7,6 +7,8 @@ public interface Collides
 {
 	public Collider getCollider();
 	public boolean getDensity();
+	public void setCollider(Collider collider);
+	public void setDensity(boolean density);
 	public default PhysicsComponent getComponent()
 	{
 		return new PhysicsComponent(getCollider(), getDensity());

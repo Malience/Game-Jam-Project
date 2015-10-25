@@ -13,13 +13,20 @@ public class GameObject
 	private ArrayList<GameComponent> components;
 	private Transform transform;
 	private CoreEngine engine;
+	private String name;
 
+	
 	public GameObject()
+	{
+		this(null);
+	}
+	public GameObject(String name)
 	{
 		children = new ArrayList<GameObject>();
 		components = new ArrayList<GameComponent>();
 		transform = new Transform();
 		engine = null;
+		this.name = name;
 	}
 
 	public void addChild(GameObject child)
