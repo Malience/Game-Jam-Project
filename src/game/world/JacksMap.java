@@ -12,6 +12,8 @@ import game.objects.Chair;
 import game.objects.Wall;
 import game.objects.food.Cookie;
 import game.objects.food.Fries;
+import game.objects.food.IceCream;
+import game.objects.food.Oranges;
 
 import com.base.engine.core.GameObject;
 
@@ -30,8 +32,8 @@ public class JacksMap extends subgame
 		createSpecials();
 		createDrinkExp();
 		createFryStation();
-		
-		
+		createIceCreamStation();
+		createOrangeStation();
 		
 	}
 
@@ -169,5 +171,57 @@ public class JacksMap extends subgame
 		fs = new Fries(-4.55f,0.2f,2.45f);
 		fs.setRotY(45);
 		World.New(fs);
+	}
+
+	public void createIceCreamStation()
+	{
+		Counter ctr;
+		IceCream ic;
+		
+		//counters
+		ctr = new Counter(5f,0f,2f);
+		ctr.setRotY(315f);
+		World.New(ctr);
+				
+		ctr = new Counter(4.8f,0f,2.2f);
+		ctr.setRotY(315f);
+		World.New(ctr);
+				
+		ctr = new Counter(4.6f,0f,2.4f);
+		ctr.setRotY(315f);
+		World.New(ctr);
+				
+		//Ice cream
+		ic = new IceCream(4.95f,0.2f,2.05f);
+		ic.setRotY(225);
+		World.New(ic);
+		
+		ic = new IceCream(4.75f,0.2f,2.25f);
+		ic.setRotY(225);
+		World.New(ic);
+		
+		ic = new IceCream(4.55f,0.2f,2.45f);
+		ic.setRotY(225);
+		World.New(ic);
+	} // create Ice cream station
+
+	public void createOrangeStation()
+	{
+		Oranges og;
+		Counter ctr;
+		float z = -2;
+		
+		//counters
+		for(float i = 0; i < 4; i++)
+		{
+			z += 0.25;
+			ctr = new Counter(7f,0f,z);
+			World.New(ctr);
+		}
+		
+		
+		
+		og = new Oranges(7f,0f,-1.5f);
+		World.New(og);
 	}
 }
