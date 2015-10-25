@@ -20,7 +20,7 @@ public class ServingTable extends Furnishing
 		super(x, y, z);
 		
 		setScale(0.002f);
-		setTexture("bricks2.jpg");
+		setTexture("plywood.jpg");
 		setMesh("ServingTable001.obj");
 		
 		float width = .9f;
