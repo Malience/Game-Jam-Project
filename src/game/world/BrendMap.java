@@ -1,5 +1,7 @@
 package game.world;
 
+import game.objects.Wall;
+
 public class BrendMap extends subgame
 {
 	public BrendMap()
@@ -9,5 +11,6 @@ public class BrendMap extends subgame
 		 * Edit them however you'd like
 		 * Then put them into the game with World.New(Object);
 		 */
+		World.New(new Wall(1, 0, 1));
 	}
 }

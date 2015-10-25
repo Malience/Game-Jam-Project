@@ -118,6 +118,6 @@ public class MainGame extends Game
 		new SriksMap();
 		new PhilsMap();
 		new BrendMap();
-		new JeremMap();
+		new JeremyMap();
 	}
 }
