@@ -12,7 +12,7 @@ import com.base.engine.rendering.Texture;
 
 public abstract class GObject implements Renderable 
 {
-	public float x,y,z,scale,rot;
+	public float x,y,z,scale,rotx,roty,rotz;
 	public ArrayList<GObject> children;
 	public String texture;
 	public String mesh;
@@ -50,9 +50,34 @@ public abstract class GObject implements Renderable
 		this.z = z;
 	}
 	
-	public void setRot(float r)
+	public void setRotX(float r)
 	{
-		rot = r;
+		rotx = r;
+	}
+	
+	public void setRotY(float r)
+	{
+		roty = r;
+	}
+	
+	public void setRotZ(float r)
+	{
+		rotz = r;
+	}
+	
+	public float getRotX()
+	{
+		return rotx;
+	}
+	
+	public float getRotY()
+	{
+		return roty;
+	}
+	
+	public float getRotZ()
+	{
+		return rotz;
 	}
 	
 	@Override
