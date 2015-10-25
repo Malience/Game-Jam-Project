@@ -22,11 +22,11 @@ import com.base.engine.rendering.Texture;
 import com.base.engine.rendering.Vertex;
 import com.base.engine.rendering.Window;
 
-import game.Player;
 import game.TestObject;
 import game.interfaces.E;
 import game.interfaces.Interface;
 import game.interfaces.InterfaceTrigger;
+import game.mob.Player;
 import game.objects.ServingTable;
 import game.objects.Table;
 import game.objects.Wall;

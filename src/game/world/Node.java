@@ -2,12 +2,13 @@ package game.world;
 
 import java.util.ArrayList;
 
-public class Node 
+import game.GObject;
+
+public class Node extends GObject
 {
-	float x,y,z;
 	public Node(float x, float y, float z)
 	{
-		
+		super(x,y,z);
 	}
 	//goto
 }

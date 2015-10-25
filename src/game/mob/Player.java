@@ -1,4 +1,4 @@
-package game;
+package game.mob;
 
 import com.base.engine.core.Vector2f;
 import com.base.engine.core.Vector3f;
@@ -6,9 +6,10 @@ import com.base.engine.physics.AABB;
 import com.base.engine.physics.BoundingSphere;
 import com.base.engine.physics.Collider;
 
-import game.mob.Mob;
+import game.Inventory;
+import game.Table;
 
-public class Player extends Mob implements Collides
+public class Player extends Mob
 {
 //<<<<<<< HEAD
 	
