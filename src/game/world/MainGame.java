@@ -36,7 +36,7 @@ import game.objects.food.PizzaSlice;
 public class MainGame extends Game
 {
 	//The name of the program
-	public static final String NAME = "Test";
+	public static final String NAME = "Cafeteria Crackdown";
 	
 	//Screen's resolution
 	public static final int SCREEN_WIDTH = 800;
