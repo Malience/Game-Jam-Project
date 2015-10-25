@@ -8,6 +8,8 @@ import static org.lwjgl.glfw.GLFW.GLFW_KEY_W;
 import com.base.engine.core.Input;
 import com.base.engine.core.Vector3f;
 
+import game.world.MainGame;
+
 public class FreeMove extends GameComponent
 {
 	private float speed;
@@ -34,16 +36,19 @@ public class FreeMove extends GameComponent
 	@Override
 	public void input(float delta)
 	{
-		float movAmt = speed * delta;
-
-		if(Input.getKey(forwardKey))
-			move(getTransform().getRot().getForward(), movAmt);
-		if(Input.getKey(backKey))
-			move(getTransform().getRot().getForward(), -movAmt);
-		if(Input.getKey(leftKey))
-			move(getTransform().getRot().getLeft(), movAmt);
-		if(Input.getKey(rightKey))
-			move(getTransform().getRot().getRight(), movAmt);
+		if(!MainGame.gameover)
+		{
+			float movAmt = speed * delta;
+	
+			if(Input.getKey(forwardKey))
+				move(getTransform().getRot().getForward(), movAmt);
+			if(Input.getKey(backKey))
+				move(getTransform().getRot().getForward(), -movAmt);
+			if(Input.getKey(leftKey))
+				move(getTransform().getRot().getLeft(), movAmt);
+			if(Input.getKey(rightKey))
+				move(getTransform().getRot().getRight(), movAmt);
+		}
 	}
 
 	private void move(Vector3f dir, float amt)
