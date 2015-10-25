@@ -22,7 +22,7 @@ public class Wall extends GObject implements Collides
 		float width = 10;
 		float height = 10;
 		
-		collider = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
+		collider = new AABB(new Vector3f(x - 2.0f, y - 2.0f, z - .4f), new Vector3f(x + 2.0f, y + 2.0f, z + .3f));
 		density = true;
 		
 	}

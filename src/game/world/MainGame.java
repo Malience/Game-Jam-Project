@@ -112,5 +112,10 @@ public class MainGame extends Game
 		World.New(new Wall(2,0,3));
 		World.New(new Wall(3,0,3));
 		//World.New(new Table(0,0,1));
+		
+		new MattsMap();
+		new JacksMap();
+		new SriksMap();
+		new PhilsMap();
 	}
 }

@@ -21,13 +21,13 @@ public class World
 		
 		o.getTransform().setScale(object.scale);
 		
-		o.getTransform().rotate(new Vector3f(1,0,0), object.getRotX());
-		o.getTransform().rotate(new Vector3f(0,1,0), object.getRotY());
-		o.getTransform().rotate(new Vector3f(0,0,1), object.getRotZ());
+		o.getTransform().rotate(new Vector3f(1,0,0), (float)Math.toDegrees(object.getRotX()));
+		o.getTransform().rotate(new Vector3f(0,1,0), (float)Math.toDegrees(object.getRotY()));
+		o.getTransform().rotate(new Vector3f(0,0,1), (float)Math.toDegrees(object.getRotZ()));
 		
-		if(o.getClass().isInstance(Collides.class))
+		if(object instanceof Collides)
 		{
-			Collides c = (Collides) o;
+			Collides c = (Collides) object;
 			o.addComponent(c.getComponent());
 		}
 		
