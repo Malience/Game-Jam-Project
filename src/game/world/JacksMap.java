@@ -9,6 +9,7 @@ import game.objects.SpecialTable;
 import game.objects.Table;
 import game.objects.Chair;
 import game.objects.Wall;
+import game.objects.food.Cookie;
 
 import com.base.engine.core.GameObject;
 
@@ -108,5 +109,8 @@ public class JacksMap extends subgame
 		DrinkMachine dm = new DrinkMachine(4,0.2f,-0.05f);
 		dm.setRotY(180);
 		World.New(dm);
+		
+		Cookie ck = new Cookie(3f,0f,5f);
+		World.New(ck);
 	}
 }
