@@ -16,12 +16,13 @@ public class Oven extends Furnishing
 		setScale(0.01f);
 		setRotY(-90);
 		setTexture("bricks2.jpg");
-		setMesh("oven001.obj");
+		setMesh("oven001.obj");		
 		
-		float width = .5f;
-		float height = .5f;
+		float width = 1.0f;
+		float height = 1.0f;
 		
 		collider = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
+		
 		density = true;
 	}
 
