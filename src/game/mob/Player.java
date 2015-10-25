@@ -27,7 +27,8 @@ public class Player extends Mob
 	public Player(float x, float y, float z)
 	{
 		super(x,y,z);
-		setTexture("friezarotate.png");
+		setTexture("player1Rotate.png");
+		setMesh("man002.obj");
 	}
 	
 	private void suspicion()
