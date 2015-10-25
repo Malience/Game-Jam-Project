@@ -15,7 +15,7 @@ public class Backpack extends Furnishing
 	public Backpack(float x, float y, float z) {
 		super(x, y, z);
 		
-		setScale(0.002f);
+		setScale(0.0025f);
 		setTexture("backpack001rotate.png");
 		setMesh("backpack001.obj");
 		

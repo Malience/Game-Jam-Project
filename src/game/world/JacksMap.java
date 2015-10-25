@@ -2,6 +2,9 @@ package game.world;
 
 import java.util.ArrayList;
 
+import game.objects.Backpack;
+import game.objects.SpecialChair;
+import game.objects.SpecialTable;
 import game.objects.Table;
 import game.objects.Chair;
 import game.objects.Wall;
@@ -78,5 +81,19 @@ public class JacksMap extends subgame
 			y.setRotY(90f);
 			World.New(y);
 		}
+		
+		//player's table
+		SpecialChair sc = new SpecialChair(0.7f,0f,-6f);
+		sc.setRotY(270);
+		World.New(sc);
+		sc = new SpecialChair(1.3f,0f,-6f);
+		sc.setRotY(90);
+		World.New(sc);
+		SpecialTable st = new SpecialTable(1f,0f,-6f);
+		Backpack bp = new Backpack(1f,0f,-6.2f);
+		World.New(bp);
+		
+		
+		World.New(st);
 	}
 }
