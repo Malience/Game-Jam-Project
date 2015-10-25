@@ -19,9 +19,6 @@ public class Wall extends GObject implements Collides
 		setTexture("bricks2.jpg");
 		setMesh("wall100_100.obj");
 		
-		float width = 10;
-		float height = 10;
-		
 		collider = new AABB(new Vector3f(x - 2.0f, y - 2.0f, z - .4f), new Vector3f(x + 2.0f, y + 2.0f, z + .3f));
 		density = true;
 		

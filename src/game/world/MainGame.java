@@ -106,11 +106,11 @@ public class MainGame extends Game
 		
 		
 		addObject(to);
-		World.New(new TestObject(0,0,0));
-		World.New(new Wall(0,0,3));
-		World.New(new Wall(1f,0,3));
-		World.New(new Wall(2,0,3));
-		World.New(new Wall(3,0,3));
+//		World.New(new TestObject(0,0,0));
+//		World.New(new Wall(0,0,3));
+//		World.New(new Wall(1f,0,3));
+//		World.New(new Wall(2,0,3));
+//		World.New(new Wall(3,0,3));
 		//World.New(new Table(0,0,1));
 		
 		new MattsMap();
