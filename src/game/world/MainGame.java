@@ -24,6 +24,7 @@ import com.base.engine.rendering.Window;
 
 import game.TestObject;
 import game.interfaces.E;
+import game.interfaces.GameOver;
 import game.interfaces.Interface;
 import game.interfaces.InterfaceTrigger;
 import game.mob.Player;
@@ -46,6 +47,7 @@ public class MainGame extends Game
 	
 	public static Player mainPlayer;
 	public static Backpack backpack;
+	public static boolean gameover;
 	
 	//public static final 
 	
@@ -152,6 +154,23 @@ public class MainGame extends Game
 		Interface.InteractE = e;
 		//END INTERFACE************
 		
+		
+		GameOver go = new GameOver(0,0, 20);
+		go.setRotX(-90);
+		
+		GameObject gg = new GameObject();
+		gg.addComponent(go.getRender());
+		interfaces.addChild(gg);
+		
+		gg.getTransform().setPos(go.getPos());
+		gg.getTransform().setScale(e.getScale());
+		gg.getTransform().rotate(new Vector3f(1,0,0), (float)Math.toRadians(e.getRotX()));
+		gg.getTransform().rotate(new Vector3f(0,1,0), (float)Math.toRadians(e.getRotY()));
+		gg.getTransform().rotate(new Vector3f(0,0,1), (float)Math.toRadians(e.getRotZ()));
+		
+		go.o = gg;
+		
+		Interface.InteractGameOver = go;
 		
 		
 		
