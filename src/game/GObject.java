@@ -14,6 +14,7 @@ public abstract class GObject
 {
 	private float x,y,z,scale,rotx,roty,rotz;
 	private ArrayList<GObject> children;
+	private GameObject This;
 	
 	public GObject()
 	{
@@ -32,6 +33,16 @@ public abstract class GObject
 	public ArrayList<GObject> getChildren()
 	{
 		return children;
+	}
+	
+	public GameObject getThis()
+	{
+		return This;
+	}
+	
+	public void setThis(GameObject o)
+	{
+		This = o;
 	}
 	
 	public float getScale()

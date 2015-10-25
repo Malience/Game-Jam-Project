@@ -27,6 +27,7 @@ import game.interfaces.E;
 import game.interfaces.Interface;
 import game.interfaces.InterfaceTrigger;
 import game.mob.Player;
+import game.mob.Worker;
 import game.objects.ServingTable;
 import game.objects.Table;
 import game.objects.Wall;
@@ -80,6 +81,7 @@ public class MainGame extends Game
 		//PLAYER**********************
 		Player player = new Player(1,0,0);
 		GameObject playerObject = new GameObject();/*.addComponent(new FreeLook(0.5f)).addComponent(new FreeMove(10))*/
+		player.setThis(playerObject);
 		playerObject.getTransform().setPos(player.getPos());
 		playerObject.getTransform().setScale(player.getScale());
 		playerObject.addComponent(player.getRender());
@@ -131,6 +133,9 @@ public class MainGame extends Game
 		//END INTERFACE************
 		
 		
+		Worker w = new Worker(-3,0,0);
+		w.setTarget(player);
+		World.New(w);
 		
 		
 		addObject(directionalLightObject);

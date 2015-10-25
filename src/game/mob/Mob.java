@@ -1,5 +1,7 @@
 package game.mob;
 
+import com.base.engine.core.Vector3f;
+import com.base.engine.physics.AABB;
 import com.base.engine.physics.Collider;
 
 import game.Collides;
@@ -16,6 +18,12 @@ public class Mob extends RCObject
 		setScale(.005f);
 		setTexture("test.png");
 		setMesh("man001.obj");
+		
+		float width = .3f;
+		float height = .3f;
+		
+		setCollider(new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2)));
+		setDensity(true);
 	}
 //	public Mob(char rank)
 //	{

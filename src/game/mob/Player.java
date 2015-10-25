@@ -13,8 +13,6 @@ public class Player extends Mob
 {
 //<<<<<<< HEAD
 	
-	float width = .3f;
-	float height = .3f;
 	
 //=======
 	private int[] foodFill = {0,0,0,0};
@@ -29,8 +27,7 @@ public class Player extends Mob
 	public Player(float x, float y, float z)
 	{
 		super(x,y,z);
-		setCollider(new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2)));
-		setDensity(true);
+		setTexture("friezarotate.png");
 	}
 	
 	private void suspicion()

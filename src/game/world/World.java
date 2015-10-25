@@ -1,5 +1,6 @@
 package game.world;
 
+import com.base.engine.components.MovementComponent;
 import com.base.engine.components.TriggerComponent;
 import com.base.engine.core.Game;
 import com.base.engine.core.GameObject;
@@ -9,6 +10,7 @@ import game.Collides;
 import game.GObject;
 import game.Renderable;
 import game.interfaces.InterfaceTrigger;
+import game.mob.Worker;
 
 public class World 
 {
@@ -56,6 +58,13 @@ public class World
 			InterfaceTrigger c = (InterfaceTrigger) object;
 			o.addComponent(new TriggerComponent(c));
 		}
+		if(object instanceof Worker)
+		{
+			Worker c = (Worker) object;
+			o.addComponent(new MovementComponent(c));
+		}
+		
+		object.setThis(o);
 		
 		return o;
 	}
