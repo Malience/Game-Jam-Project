@@ -22,8 +22,6 @@ public class Main
 		CoreEngine engine = new CoreEngine(MainGame.SCREEN_WIDTH, MainGame.SCREEN_HEIGHT, MainGame.NAME, 60, new MainGame());
 //		engine.createWindow("3D Game Engine");
 //		engine.start();
-		
-	
 
 	}
 }
