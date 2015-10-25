@@ -24,10 +24,6 @@ public class MattsMap extends subgame
 		 * Then put them into the game with World.New(Object);
 		 */
 		new Pizza(0,0,3);
-		World.New(new ServingTable(-4,0,0));
-		World.New(new SpecialTable(-4,0,-3));
-		World.New(new SpecialChair(-4,0,-4));
-		World.New(new Backpack(-5,0,-4));
 		
 		Node n1 = NodeTree.setNode(3,0,0);
 		Node n2 = NodeTree.setNode(-3,0,0);

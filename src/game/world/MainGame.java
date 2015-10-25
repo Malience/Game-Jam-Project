@@ -42,6 +42,9 @@ public class MainGame extends Game
 	public static final int SCREEN_WIDTH = 800;
 	public static final int SCREEN_HEIGHT = 600;
 	
+	
+	public static Player mainPlayer;
+	
 	//public static final 
 	
 	public void init()
@@ -85,7 +88,10 @@ public class MainGame extends Game
 		playerObject.getTransform().setPos(player.getPos());
 		playerObject.getTransform().setScale(player.getScale());
 		playerObject.addComponent(player.getRender());
+		mainPlayer = player;
 		//END PLAYER**********************
+		
+		//FOG*************************************
 		Material material2 = new Material();
 		material2.addTexture("diffuse", new Texture("fog2.png"));
 		material2.addFloat("specularIntensity", 1);
@@ -98,6 +104,7 @@ public class MainGame extends Game
 		fog.getTransform().setScale(600);
 		
 		playerObject.addChild(fog);
+		//END FOG***************************************
 		
 		//PLAYER PHYSICS COMPONENT
 		PhysicsComponent pc = player.getComponent1();

@@ -36,7 +36,7 @@ public class ServingTable extends Furnishing
 		pizza = new Pizza(x,y + height,z);
 		
 		
-		InterfaceTrigger it = new InterfaceTrigger(0,0,-1,Interface.InteractE);
+		InterfaceTrigger it = new InterfaceTrigger(0,0,-1,Interface.InteractE, this);
 		it.setPos(it.getPos().add(getPos()));
 		getChildren().add(it);
 	}
