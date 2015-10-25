@@ -1,6 +1,9 @@
 package game.world;
 
+import game.objects.Chair;
+import game.objects.Counter;
 import game.objects.Oven;
+import game.objects.ServingTable;
 import game.objects.Wall;
 
 public class MattsMap extends subgame
@@ -13,14 +16,6 @@ public class MattsMap extends subgame
 		 * Then put them into the game with World.New(Object);
 		 */
 		
-		World.New(new Oven(0,0,3));
-		World.New(new Wall(0,0,5));
-		World.New(new Wall(0,0,5));
-		World.New(new Wall(0,0,5));
-		World.New(new Wall(0,0,5));
-		World.New(new Wall(0,0,5));
-		World.New(new Wall(0,0,5));
-		World.New(new Wall(0,0,5));
-		World.New(new Wall(0,0,5));
+		World.New(new Chair(0,0,3));
 	}
 }
