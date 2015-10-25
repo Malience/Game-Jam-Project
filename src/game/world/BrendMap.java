@@ -11,6 +11,6 @@ public class BrendMap extends subgame
 		 * Edit them however you'd like
 		 * Then put them into the game with World.New(Object);
 		 */
-		World.New(new Wall(1, 0, 1));
+		//World.New(new Wall(1, 0, 1));
 	}
 }

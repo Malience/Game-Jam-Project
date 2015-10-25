@@ -15,7 +15,7 @@ public class SpecialChair extends Furnishing
 	public SpecialChair(float x, float y, float z) {
 		super(x, y, z);
 		
-		setScale(0.002f);
+		setScale(0.0035f);
 		setTexture("chair001rotate.png");
 		setMesh("chair001.obj");
 		

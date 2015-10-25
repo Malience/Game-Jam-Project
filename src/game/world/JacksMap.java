@@ -2,9 +2,14 @@ package game.world;
 
 import java.util.ArrayList;
 
+import game.objects.Backpack;
+import game.objects.DrinkMachine;
+import game.objects.SpecialChair;
+import game.objects.SpecialTable;
 import game.objects.Table;
 import game.objects.Chair;
 import game.objects.Wall;
+import game.objects.food.Cookie;
 
 import com.base.engine.core.GameObject;
 
@@ -78,5 +83,34 @@ public class JacksMap extends subgame
 			y.setRotY(90f);
 			World.New(y);
 		}
+		
+		//player's table,chair, and backpack
+		SpecialChair sc = new SpecialChair(0.7f,0f,-6f);
+		sc.setRotY(270);
+		World.New(sc);
+		sc = new SpecialChair(1.3f,0f,-6f);
+		sc.setRotY(90);
+		World.New(sc);
+		SpecialTable st = new SpecialTable(1f,0f,-6f);
+		World.New(st);
+		Backpack bp = new Backpack(1f,0f,-6.2f);
+		World.New(bp);	
+		
+		//inc length for drink area
+		t = new Table(3.25f,0f,0f);
+		World.New(t);		
+		t = new Table(3.50f,0f,0f);
+		World.New(t);
+		t = new Table(3.75f,0f,0f);
+		World.New(t);
+		t = new Table(4f,0f,0f);
+		World.New(t);
+		
+		DrinkMachine dm = new DrinkMachine(4,0.2f,-0.05f);
+		dm.setRotY(180);
+		World.New(dm);
+		
+		Cookie ck = new Cookie(3f,0f,5f);
+		World.New(ck);
 	}
 }
