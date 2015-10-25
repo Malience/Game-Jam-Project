@@ -8,6 +8,7 @@ import com.base.engine.physics.Collider;
 
 import game.Inventory;
 import game.Table;
+import game.world.MainGame;
 
 public class Player extends Mob
 {
@@ -90,6 +91,7 @@ public class Player extends Mob
 			inv.addFood(food);
 			suspected+=10;
 			if(suspected>maxSus) suspected = maxSus;
+			MainGame.backpack.getThis().getTransform().setScale(MainGame.backpack.getThis().getTransform().getScale().mul(1.02f));
 			System.out.println("Bagged food! Profit: ");
 			System.out.println(inv.profit());
 		}
@@ -106,5 +108,10 @@ public class Player extends Mob
 			//player stops for short time
 			fullness = 90;
 		}
+	}
+
+	public void gameOver() {
+		// TODO Auto-generated method stub
+		
 	}
 }

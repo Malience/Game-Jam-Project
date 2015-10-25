@@ -1,36 +1,27 @@
 package game.mob;
+
 import java.util.Random;
 
-import com.base.engine.core.GameObject;
-import com.base.engine.core.Vector3f;
-import com.base.engine.physics.AABB;
-
 import game.GObject;
-import game.RCObject;
-import game.interfaces.Interface;
-import game.interfaces.InterfaceTrigger;
 import game.world.MainGame;
 import game.world.Node;
 import game.world.NodeTree;
 
-public class Worker extends Mob
+public class Student extends Mob
 {
 	int speed;
 	GObject target;
 	
-	public Worker(float x, float y, float z)
+	public Student(float x, float y, float z)
 	{
 		super(x,y,z);
 		float width = .3f;
 		float height = .3f;
-		setTexture("workerrotate.png");
+		setTexture("studentRotate.png");
 		speed = 2;
-		//setRotY(90);
-		
-		getChildren().add(new InterfaceTrigger(0,0,0,Interface.InteractE,this));
+		setRotY(90);
 	}
 	
-	//turn or no turn
 	private boolean turn()
 	{
 		Random rand = new Random();
@@ -54,8 +45,6 @@ public class Worker extends Mob
 	//controls movement
 	public void move(float delta)
 	{
-		if(MainGame.mainPlayer.suspicion())
-			target = MainGame.mainPlayer;
 		if(target!=null)
 		{
 			if(target instanceof Node)
@@ -76,40 +65,5 @@ public class Worker extends Mob
 			}
 			
 		}
-//		boolean go = turn();
-//		int dir = 0;
-//		
-//		//		0
-//		// 270		90
-//		//	   180
-//		
-//		if (go == false)
-//		{
-//			//forward
-//		}
-//		else //turn
-//		{			
-//			//turn right
-//			dir = dir + 90;
-//			if (dir > 270)
-//			{
-//				dir = 0;
-//			}
-//			//turn left
-//			dir = dir - 90;
-//			if (dir < 0)
-//			{
-//				dir = 270;
-//			}
-//			//turn around
-//			if (dir >= 180)
-//			{
-//				dir -= 180;
-//			}
-//			else
-//			{
-//				dir += 180;
-//			}
-		
 	}
 }
