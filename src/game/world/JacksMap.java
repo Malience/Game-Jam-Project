@@ -2,6 +2,9 @@ package game.world;
 
 import java.util.ArrayList;
 
+
+
+import game.mob.Student;
 import game.mob.Worker;
 import game.objects.Backpack;
 import game.objects.Counter;
@@ -262,5 +265,9 @@ public class JacksMap extends subgame
 		Worker w2 = new Worker(3,0,-5);
 		w2.setTarget(n12);
 		World.New(w2);
+		
+		Student s1  = new Student(1,0,-5);
+		s1.setTarget(n13);
+		World.New(s1);
 	}
 }
