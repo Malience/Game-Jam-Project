@@ -13,8 +13,9 @@ public class Chair extends Furnishing
 	public Chair(float x, float y, float z) {
 		super(x, y, z);
 		
-		setScale(0.002f);
+		setScale(0.0035f);
 		setTexture("chair001rotate.png");
+		//setTexture("chair001.png");
 		setMesh("chair001.obj");
 		
 		float width = .9f;
