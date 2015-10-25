@@ -8,6 +8,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_KEY_W;
 import com.base.engine.core.Input;
 import com.base.engine.core.Vector3f;
 
+
 public class Controller extends GameComponent
 {
 	private float speed;
