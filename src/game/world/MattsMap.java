@@ -1,5 +1,6 @@
 package game.world;
 
+import game.mob.Worker;
 import game.objects.Backpack;
 import game.objects.Chair;
 import game.objects.Counter;
@@ -27,6 +28,8 @@ public class MattsMap extends subgame
 		World.New(new SpecialTable(-4,0,-3));
 		World.New(new SpecialChair(-4,0,-4));
 		World.New(new Backpack(-5,0,-4));
+		
+		World.New(new Node(3,0,0));
 //		World.New(new PizzaSlice(0,0,3));
 	}
 }

@@ -1,23 +1,26 @@
 package game.mob;
 import java.util.Random;
 
+import com.base.engine.core.GameObject;
 import com.base.engine.core.Vector3f;
 import com.base.engine.physics.AABB;
 
+import game.GObject;
 import game.RCObject;
 
-public class Worker extends RCObject
+public class Worker extends Mob
 {
 	int speed;
+	GObject target;
 	
 	public Worker(float x, float y, float z)
 	{
 		super(x,y,z);
 		float width = .3f;
 		float height = .3f;
-		
-		setCollider(new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2)));
-		setDensity(true);
+		setTexture("workerrotate.png");
+		speed = 2;
+		setRotY(90);
 	}
 	
 	//turn or no turn
@@ -36,43 +39,52 @@ public class Worker extends RCObject
 			return false; //no turn
 	} //end turn
 	
-	//controls movement
-	private void move()
+	public void setTarget(GObject target)
 	{
-		boolean go = turn();
-		int dir = 0;
-		
-		//		0
-		// 270		90
-		//	   180
-		
-		if (go == false)
+		this.target = target;
+	}
+	
+	//controls movement
+	public void move(float delta)
+	{
+		if(target!=null)
 		{
-			//forward
+			getThis().getTransform().setPos((target.getThis().getTransform().getPos().sub(getThis().getTransform().getPos()).mul(1/2f).normalized().mul(speed*delta)).add(getThis().getTransform().getPos()));
 		}
-		else //turn
-		{			
-			//turn right
-			dir = dir + 90;
-			if (dir > 270)
-			{
-				dir = 0;
-			}
-			//turn left
-			dir = dir - 90;
-			if (dir < 0)
-			{
-				dir = 270;
-			}
-			//turn around
-			if (dir >= 180)
-			{
-				dir -= 180;
-			}
-			else
-			{
-				dir += 180;
-			}
-		}
+//		boolean go = turn();
+//		int dir = 0;
+//		
+//		//		0
+//		// 270		90
+//		//	   180
+//		
+//		if (go == false)
+//		{
+//			//forward
+//		}
+//		else //turn
+//		{			
+//			//turn right
+//			dir = dir + 90;
+//			if (dir > 270)
+//			{
+//				dir = 0;
+//			}
+//			//turn left
+//			dir = dir - 90;
+//			if (dir < 0)
+//			{
+//				dir = 270;
+//			}
+//			//turn around
+//			if (dir >= 180)
+//			{
+//				dir -= 180;
+//			}
+//			else
+//			{
+//				dir += 180;
+//			}
+		
 	}
 }
