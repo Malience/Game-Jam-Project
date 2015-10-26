@@ -8,6 +8,7 @@ import com.base.engine.physics.Collider;
 
 import game.Inventory;
 import game.Table;
+import game.interfaces.Interface;
 import game.world.MainGame;
 
 public class Player extends Mob
@@ -111,7 +112,11 @@ public class Player extends Mob
 	}
 
 	public void gameOver() {
-		
+		if(!MainGame.gameover)
+		{
+			MainGame.gameover = true;
+			Interface.InteractGameOver.o.getTransform().setPos(new Vector3f(0,0, 20));
+		}
 		
 	}
 }

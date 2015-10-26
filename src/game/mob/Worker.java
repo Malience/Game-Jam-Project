@@ -4,6 +4,7 @@ import java.util.Random;
 import com.base.engine.core.GameObject;
 import com.base.engine.core.Vector3f;
 import com.base.engine.physics.AABB;
+import com.base.engine.physics.Collider;
 
 import game.GObject;
 import game.RCObject;
@@ -28,6 +29,18 @@ public class Worker extends Mob
 		//setRotY(90);
 		
 		getChildren().add(new InterfaceTrigger(0,0,0,Interface.InteractE,this));
+	}
+	
+	public Worker(float x, float y, float z, Collider c1, Collider c2)
+	{
+		super(x,y,z);
+		float width = .3f;
+		float height = .3f;
+		setTexture("workerrotate.png");
+		speed = 2;
+		//setRotY(90);
+		
+		getChildren().add(new InterfaceTrigger(0,0,0,Interface.InteractE,this, c1, c2));
 	}
 	
 	//turn or no turn

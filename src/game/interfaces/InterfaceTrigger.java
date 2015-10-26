@@ -25,15 +25,47 @@ public class InterfaceTrigger extends GObject implements Collides
 	public E e;
 	public Vector3f base;
 	private GObject parent;
+	float width = 1f;
+	float height = 1f;
 	
+	
+	public InterfaceTrigger(float x, float y, float z, E e, GObject object, Collider c1, Collider c2)
+	{	
+		this.e = e;
+		base = e.getPos();
+		parent = object;
+		
+		collider1 = c1;
+		collider2 = c2;
+		density = false;
+		
+		getChildren().add(new PizzaSlice(0,0,0));
+	}
+	
+	public InterfaceTrigger(float x, float y, float z, E e, GObject object, float w, float h)
+	{	
+		this.e = e;
+		base = e.getPos();
+		parent = object;
+		
+		width = w;
+		height = h;
+		
+		collider1 = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
+		collider2 = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
+		density = false;
+		
+		getChildren().add(new PizzaSlice(0,0,0));
+	}
 	
 	public InterfaceTrigger(float x, float y, float z, E e, GObject object)
 	{	
 		this.e = e;
 		base = e.getPos();
 		parent = object;
-		float width = 1f;
-		float height = 1f;
+		
+		width = 1f;
+		height = 1f;
 		
 		collider1 = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
 		collider2 = new AABB(new Vector3f(x - width/2, y - height/2, z - width/2), new Vector3f(x + width/2, y + height/2, z + width/2));
@@ -67,10 +99,11 @@ public class InterfaceTrigger extends GObject implements Collides
 			{
 				MainGame.mainPlayer.bag(0);
 			}
-			if(parent instanceof Worker)
-			{
-				MainGame.mainPlayer.gameOver();
-			}
+		}
+		if(parent instanceof Worker)
+		{
+			System.out.println("works");
+			MainGame.mainPlayer.gameOver();
 		}
 	}
 	
