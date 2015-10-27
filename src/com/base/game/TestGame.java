@@ -2,12 +2,7 @@ package com.base.game;
 
 import com.base.engine.components.*;
 import com.base.engine.core.*;
-import com.base.engine.physics.*;
 import com.base.engine.rendering.*;
-
-import game.TestObject;
-
-import static com.base.engine.physics.Collider.*;
 
 public class TestGame extends Game
 {

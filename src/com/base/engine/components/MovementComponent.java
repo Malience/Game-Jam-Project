@@ -1,9 +1,7 @@
 package com.base.engine.components;
 
-import com.base.engine.physics.Collider;
 import com.base.engine.physics.PhysicsEngine;
 
-import game.interfaces.InterfaceTrigger;
 import game.mob.Worker;
 
 public class MovementComponent extends GameComponent

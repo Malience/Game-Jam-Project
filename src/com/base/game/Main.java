@@ -1,7 +1,5 @@
 package com.base.game;
 
-import com.base.engine.audio.Noise;
-import com.base.engine.audio.Sound;
 import com.base.engine.core.CoreEngine;
 
 import game.world.MainGame;
@@ -9,6 +7,7 @@ import game.world.MainGame;
 public class Main
 {
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args)
 	{
 		//Testing.testAll();

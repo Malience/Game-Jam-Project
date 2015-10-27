@@ -4,10 +4,7 @@ import com.base.engine.physics.AABB;
 import com.base.engine.physics.Collider;
 
 public class CObject extends GObject implements Collides
-{
-	private String texture;
-	private String mesh;
-	
+{	
 	private Collider collider1;
 	private Collider collider2;
 	private boolean density;
@@ -35,7 +32,7 @@ public class CObject extends GObject implements Collides
 	@Override
 	public void setCollider(Collider collider) {
 		this.collider1 = collider;
-		if(collider.getType() == collider.TYPE_AABB)
+		if(collider.getType() == Collider.TYPE_AABB)
 			this.collider2 = (Collider) new AABB((AABB)collider);
 	}
 

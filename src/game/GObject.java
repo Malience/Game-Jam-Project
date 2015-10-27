@@ -2,13 +2,8 @@ package game;
 
 import java.util.ArrayList;
 
-import com.base.engine.components.MeshRenderer;
 import com.base.engine.core.GameObject;
-import com.base.engine.core.Transform;
 import com.base.engine.core.Vector3f;
-import com.base.engine.rendering.Material;
-import com.base.engine.rendering.Mesh;
-import com.base.engine.rendering.Texture;
 
 public abstract class GObject
 {

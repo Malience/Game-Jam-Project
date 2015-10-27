@@ -1,10 +1,6 @@
 package com.base.engine.physics;
 
-import java.util.HashMap;
-
 import com.base.engine.core.Vector3f;
-
-import static com.base.engine.physics.Collider.*;
 
 public class PhysicsObject 
 {	

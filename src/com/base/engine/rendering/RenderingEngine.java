@@ -2,9 +2,7 @@ package com.base.engine.rendering;
 
 import com.base.engine.components.BaseLight;
 import com.base.engine.components.Camera;
-import com.base.engine.components.DirectionalLight;
 import com.base.engine.core.GameObject;
-import com.base.engine.core.Matrix4f;
 import com.base.engine.core.Transform;
 import com.base.engine.core.Vector3f;
 import com.base.engine.rendering.MeshLoading.ResourceManagement.MappedValues;
@@ -13,15 +11,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL12.*;
-import static org.lwjgl.opengl.GL14.*;
-import static org.lwjgl.opengl.GL15.glDeleteBuffers;
-import static org.lwjgl.opengl.GL30.*;
 import static org.lwjgl.opengl.GL32.*;
 
 public class RenderingEngine extends MappedValues
 {
-	public static Camera mainCamera;
+	private Camera mainCamera;
 
 	private ArrayList<BaseLight> lights;
 	private BaseLight activeLight;

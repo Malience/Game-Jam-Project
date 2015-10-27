@@ -1,9 +1,7 @@
 package com.base.game;
 
 import com.base.engine.physics.AABB;
-import com.base.engine.physics.BoundingSphere;
 import com.base.engine.physics.PhysicsObject;
-import com.base.engine.physics.Plane;
 
 public class Testing
 {

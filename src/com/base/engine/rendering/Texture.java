@@ -3,10 +3,7 @@ package com.base.engine.rendering;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL13.*;
-import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.*;
-import static org.lwjgl.opengl.GL32.*;
-
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.ByteBuffer;

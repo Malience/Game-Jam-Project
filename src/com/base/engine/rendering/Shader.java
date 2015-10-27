@@ -6,8 +6,6 @@ import com.base.engine.components.PointLight;
 import com.base.engine.components.SpotLight;
 import com.base.engine.core.*;
 import com.base.engine.rendering.MeshLoading.ResourceManagement.ShaderResource;
-import com.base.engine.rendering.MeshLoading.ResourceManagement.TextureResource;
-
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL32.*;
 
@@ -308,6 +306,7 @@ public class Shader
 		addProgram(text, GL_VERTEX_SHADER);
 	}
 	
+	@SuppressWarnings("unused")
 	private void addGeometryShader(String text)
 	{
 		addProgram(text, GL_GEOMETRY_SHADER);

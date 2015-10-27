@@ -1,6 +1,5 @@
 package com.base.engine.physics;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.base.engine.components.PhysicsComponent;

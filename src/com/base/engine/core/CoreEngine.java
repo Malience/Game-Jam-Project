@@ -2,7 +2,6 @@ package com.base.engine.core;
 
 
 import static org.lwjgl.glfw.GLFW.*;
-import static com.base.engine.core.Input.*;
 import static com.base.engine.rendering.Window.*;
 import static org.lwjgl.opengl.GL11.*;
 

@@ -8,7 +8,6 @@ import java.util.HashMap;
 import com.base.engine.core.Util;
 import com.base.engine.core.Vector2f;
 import com.base.engine.core.Vector3f;
-import com.base.engine.rendering.Vertex;
 
 public class OBJModel
 {
