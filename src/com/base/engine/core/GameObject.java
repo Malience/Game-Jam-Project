@@ -100,6 +100,11 @@ public class GameObject
 		return transform;
 	}
 	
+	public Vector3f getPosition()
+	{
+		return transform.getPos();
+	}
+	
 	public void setEngine(CoreEngine engine)
 	{
 		if(this.engine != engine)
